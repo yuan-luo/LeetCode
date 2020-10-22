@@ -20,7 +20,7 @@ NOTE: input types have been changed on April 15, 2019. Please reset to default c
 且此时b的起始位置小于a的结束位置，那么一定有 overlap，参见代码如下：
 
 ### 代码
-```cpp
+
 class Solution {
 public:
     bool canAttendMeetings(vector<vector<int>>& intervals) {
@@ -34,7 +34,7 @@ public:
         return true;
     }
 };
-```
+
 
 ### 解题思路2
 
@@ -42,7 +42,7 @@ public:
 则说明会议时间有冲突，返回 false，遍历完成后没有冲突，则返回 true，参见代码如下：
 
 ### 代码
-```cpp
+
 class Solution {
 public:
     bool canAttendMeetings(vector<vector<int>>& intervals) {
@@ -56,4 +56,3 @@ public:
     }
 };
 
-```
