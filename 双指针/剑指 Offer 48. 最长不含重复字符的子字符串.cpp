@@ -7,7 +7,6 @@ https://leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chu
 
 ### 代码
 
-```cpp
 class Solution {
 public:
 
@@ -24,4 +23,4 @@ public:
         return res;
     }
 };
-```
+
