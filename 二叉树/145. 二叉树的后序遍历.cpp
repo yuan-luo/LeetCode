@@ -5,7 +5,8 @@ https://leetcode-cn.com/problems/binary-tree-postorder-traversal/
 给定一个二叉树，返回它的 后序 遍历。
 
 题解：
-两种解法：迭代和倒序
+后序遍历是三种遍历中最复杂的一种。
+两种解法：迭代和中序之后反转。
 
 /**
  * Definition for a binary tree node.
