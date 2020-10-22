@@ -6,10 +6,7 @@ https://leetcode-cn.com/problems/swap-nodes-in-pairs/
 
 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
 
- 
-
 示例 1：
-
 
 输入：head = [1,2,3,4]
 输出：[2,1,4,3]
