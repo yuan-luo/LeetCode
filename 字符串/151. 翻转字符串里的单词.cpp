@@ -63,3 +63,16 @@ public:
     }
 };
 
+分析：
+
+"the sky is blue" 第一次反转以后为
+"eulb si yks eht"
+
+在处理循环处理第一个单词时
+while (j < n && s[j] != ' ') s[storeIndex++] = s[j++];
+上面循环结束后 i=0, j=4, storeIndex=4
+计算单词长度为4。
+注意：reverse(first, last)函数只反转[first, last)区间，所以s[4]=' '不参与反转。
+
+"blue is sky the"
+
