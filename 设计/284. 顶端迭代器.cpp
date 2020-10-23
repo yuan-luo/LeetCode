@@ -13,43 +13,34 @@ https://leetcode-cn.com/problems/peeking-iterator/
 最后一次调用 next() 返回 3，末尾元素。在此之后调用 hasNext() 应该返回 false。
 进阶：你将如何拓展你的设计？使之变得通用化，从而适应所有的类型，而不只是整数型？
 
-/*
- * Below is the interface for Iterator, which is already defined for you.
- * **DO NOT** modify the interface for Iterator.
- *
- *  class Iterator {
- *		struct Data;
- * 		Data* data;
- *		Iterator(const vector<int>& nums);
- * 		Iterator(const Iterator& iter);
- *
- * 		// Returns the next element in the iteration.
- *		int next();
- *
- *		// Returns true if the iteration has more elements.
- *		bool hasNext() const;
- *	};
- */
+=============================================================
+题解：
+
+next()可以返回队头元素，但会造成队头索引的移动。
+这道题考的其实是：如何返回队头元素，但队头索引不动。
+
+我们加一个cur下标用来记录当前元素的下一个元素的下标。
+当调用next()的时候我们先返回cur，再把cur记录下一个元素的下标。
 
 class PeekingIterator : public Iterator {
 public:
 	PeekingIterator(const vector<int>& nums) : Iterator(nums) {
 	    if (!Iterator::hasNext()) cur = -1;
-        else cur = Iterator::next();
+            else cur = Iterator::next();
 	}
 	
-    // Returns the next element in the iteration without advancing the iterator.
+	// Returns the next element in the iteration without advancing the iterator.
 	int peek() {
-        return cur;
+            return cur;
 	}
 	
 	// hasNext() and next() should behave the same as in the Iterator interface.
 	// Override them if needed.
 	int next() {
 	    int res = cur;
-        if (Iterator::hasNext()) cur = Iterator::next();
-        else cur = -1;
-        return res;
+	    if (Iterator::hasNext()) cur = Iterator::next();
+	    else cur = -1;
+	    return res;
 	}
 	
 	bool hasNext() const {
