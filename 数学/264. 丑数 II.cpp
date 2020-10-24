@@ -21,7 +21,7 @@ The key is how to maintain the order of the ugly numbers. Try a similar approach
 Assume you have Uk, the kth ugly number. Then Uk+1 must be Min(L1 * 2, L2 * 3, L3 * 5).
 
 题解来自于隐藏提示。说明下一个丑数是来自于三个list中的最大值。
-我们建一个小顶堆。
+我们建一个小顶堆，每次都插入这三个list的值，并且弹出重复的元素，这样n轮循环以后，顶堆的元素就是第n大的丑数。
 
 class Solution {
 public:
