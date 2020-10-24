@@ -16,6 +16,11 @@ https://leetcode-cn.com/problems/longest-palindromic-substring/
 1. 以i为中心向两边扩散。注意边界ExpandPalindrome()的返回值需要把i和j本身剔除掉。
 返回值应该为：j - i + 1 - 2
 2. start和end的值。特别是start值的确定。这个表达式是综合了偶数和奇数两种情况计算出来的结果。
+
+此题还可以用DP来做。dp[i][j]表示下标为i到j的字符串是回文数。
+这时候的状态转移方程是：
+dp[i][j] = (s[i] == s[j] && dp[i + 1][j - 1]) 
+dp[i][i] = true
     
 class Solution {
 public:
