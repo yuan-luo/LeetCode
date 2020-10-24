@@ -23,4 +23,35 @@ https://leetcode-cn.com/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-l
    [5,8,4,5]
 ]
 
+===================================================
 
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int>> pathSum(TreeNode* root, int sum) {
+        vector<vector<int>> res;
+        vector<int> out;
+        helper(root, sum, res, out);
+        return res;
+    }
+
+    void helper(TreeNode* root, int sum, vector<vector<int>>& res, vector<int>& out) {
+        if (root == nullptr) return;
+        out.push_back(root->val);
+        sum -= root->val;
+        if (sum == 0 && root->left == nullptr && root->right == nullptr)
+            res.push_back(out);
+        helper(root->left, sum, res, out);
+        helper(root->right, sum, res, out);
+        out.pop_back();
+    }
+
+};
