@@ -14,11 +14,24 @@ https://leetcode-cn.com/problems/move-zeroes/
 尽量减少操作次数。
 
 ========================================
+题解：
+
+把非零的数字移动到数组前面，然后将后面的数字改成0。
 
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
-        
+        int cur = 0;
+        for (int i = 0; i < nums.size(); ++i){
+            if (nums[i] != 0){
+                nums[cur] = nums[i];
+                cur++;
+            }        
+        }
+        for (int i = cur; i < nums.size(); i++) {
+            nums[i] = 0;
+        }
+        return;
     }
 };
 
