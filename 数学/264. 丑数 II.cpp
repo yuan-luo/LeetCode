@@ -22,6 +22,7 @@ Assume you have Uk, the kth ugly number. Then Uk+1 must be Min(L1 * 2, L2 * 3, L
 
 题解来自于隐藏提示。说明下一个丑数是来自于三个list中的最大值。
 我们建一个小顶堆，每次都插入这三个list的值，并且弹出重复的元素，这样n轮循环以后，顶堆的元素就是第n大的丑数。
+值得注意的是：这里的小顶堆的size不一定是n，它表达的意思是经过了n轮循环迭代，产生了n次三个list中的最小值的选择，最后选择出来的第n大的丑数。
 
 class Solution {
 public:
