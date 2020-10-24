@@ -24,22 +24,17 @@ https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
 
 题解：
 
-
-
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int size = nums.size();
-        if(size == 0) return 0;
-        int n = 0;
-        for(int i = 0; i < size; i++){
-            if(nums[i] == nums[n]){
-                continue;
-            } else {
-                n++;
-                nums[n] = nums[i];
+        if (nums.size() == 0) return 0;
+        int i = 0;
+        for (int j = 1; j < nums.size(); ++j) {
+            if (nums[i] != nums[j]) {
+                ++i;
+                nums[i] = nums[j];
             }
         }
-        return n + 1;
+        return i + 1;
     }
 };
