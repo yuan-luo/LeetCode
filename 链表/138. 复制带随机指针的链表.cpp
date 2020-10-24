@@ -4,7 +4,9 @@ https://leetcode-cn.com/problems/copy-list-with-random-pointer/
 
 题解：
 
-设计一个haspmap，先把node的值存进去，然后value指向它的random node。
+设计一个haspmap，先把node的值存进去，第一轮循环下来，map里面的entry只记录value，没有next和random指针。
+接下来在一轮循环，populate每个节点cur的next和random指针，他们分别就是m[cur->next]和m[cur->random]。
+因为每个m[cur]其实就是相当于那个值为cur->val的节点。
 
 /*
 // Definition for a Node.
