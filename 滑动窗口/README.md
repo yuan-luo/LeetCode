@@ -1,6 +1,6 @@
-More Similar Sliding Window Problems
+### More Similar Sliding Window Problems
 
-Here are some similar sliding window problems.
+### Here are some similar sliding window problems.
 
 1358. Number of Substrings Containing All Three Characters
 1248. Count Number of Nice Subarrays
