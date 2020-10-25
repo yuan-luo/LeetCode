@@ -7,6 +7,8 @@ https://leetcode-cn.com/problems/longest-palindromic-substring/
 =============================================================
 题解：
 
+解法一：中间扩散法，双指针
+
 有两种情况：
 1. 最大回文长度为奇数
 2. 最大回文长度为偶数
@@ -17,11 +19,6 @@ https://leetcode-cn.com/problems/longest-palindromic-substring/
 返回值应该为：j - i + 1 - 2
 2. start和end的值。特别是start值的确定。这个表达式是综合了偶数和奇数两种情况计算出来的结果。
 
-此题还可以用DP来做。dp[i][j]表示下标为i到j的字符串是回文数。
-这时候的状态转移方程是：
-dp[i][j] = (s[i] == s[j] && dp[i + 1][j - 1]) 
-dp[i][i] = true
-    
 class Solution {
 public:
     string longestPalindrome(string s) {
@@ -56,3 +53,11 @@ public:
     }
 
 };
+
+解法2：
+
+此题还可以用DP来做。dp[i][j]表示下标为i到j的字符串是回文数。
+这时候的状态转移方程是：
+dp[i][j] = (s[i] == s[j] && dp[i + 1][j - 1]) 
+dp[i][i] = true
+    
