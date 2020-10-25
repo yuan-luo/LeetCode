@@ -38,12 +38,23 @@ public:
     }
     
     void push(int x) {
-
+        ++freq[x];
+        mxFreq = max(mxFreq, freq[x]);
+        m[freq[x]].push_back(x);
     }
     
     int pop() {
-
+        int x = m[mxFreq].back();
+        --freq[x];
+        m[mxFreq].pop_back();
+        if (m[mxFreq].empty()) --mxFreq;
+        return x;
     }
+
+private:
+    int mxFreq;
+    unordered_map<int, int> freq; // val->freq;
+    unordered_map<int, vector<int>> m; // freq->vector of same freq
 };
 
 /**
@@ -52,4 +63,5 @@ public:
  * obj->push(x);
  * int param_2 = obj->pop();
  */
-
+ 
+ 
