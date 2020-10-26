@@ -1,8 +1,10 @@
 剑指 Offer 36. 二叉搜索树与双向链表
 
 https://leetcode-cn.com/problems/er-cha-sou-suo-shu-yu-shuang-xiang-lian-biao-lcof/
+
 ### 解题思路
 
+这道题的一个关键是设计一个全局prev节点指针。
 利用递归中序遍历处理中间节点双向相连，
 利用构造一个dummy指针处理首尾节点连接。
 
