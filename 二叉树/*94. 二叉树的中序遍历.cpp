@@ -18,3 +18,32 @@ public:
         return res;
     }
 };
+
+我的写法：
+
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        if (root == nullptr) return {};
+        vector<int> ans;
+        TreeNode *p = root;
+        while (p) {
+            st.push(p);
+            p = p->left;
+        }
+
+        while (!st.empty()) {
+            TreeNode *node = st.top();
+            st.pop();
+            
+            ans.push_back(node->val);
+            node = node->right;
+            while (node) {
+                st.push(node);
+                node = node->left;
+            }
+        }
+        return ans;
+    }
+    stack<TreeNode*> st;
+};
