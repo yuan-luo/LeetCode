@@ -17,4 +17,21 @@ https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/
 输入: [2,2,2,0,1]
 输出: 0
 
-TBD
+class Solution {
+public:
+    int minArray(vector<int>& numbers) {
+        if (numbers.size() == 0) return 0;
+        int left = 0, right = numbers.size() - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (numbers[mid] > numbers[right]) {
+                left = mid + 1;
+            } else if (numbers[mid] < numbers[right]) {
+                right = mid;
+            } else {
+                right = right - 1;
+            }
+        }
+        return numbers[left];
+    }
+};
