@@ -16,6 +16,10 @@ https://leetcode-cn.com/problems/sort-colors/
 
 =====================================================
 
+我犯过一个错误是把i的下界设成nums.size()，这里应该设置为r。因为r后面的数字全部是2了。
+        for (int i = 0; i < nums.size(); ++i) {
+
+
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
