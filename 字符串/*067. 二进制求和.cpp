@@ -1,10 +1,7 @@
 67. 二进制求和
 
 给你两个二进制字符串，返回它们的和（用二进制表示）。
-
 输入为 非空 字符串且只包含数字 1 和 0。
-
- 
 
 示例 1:
 
@@ -15,10 +12,32 @@
 输入: a = "1010", b = "1011"
 输出: "10101"
  
-
 提示：
 
 每个字符串仅由字符 '0' 或 '1' 组成。
 1 <= a.length, b.length <= 10^4
 字符串如果不是 "0" ，就都不含前导零。
 
+题解：
+
+先将两数倒序，然后设计一个carry进位。最后把结果再倒序。
+
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        string ans;
+        reverse(a.begin(), a.end());
+        reverse(b.begin(), b.end());
+        int n = max(a.size(), b.size()), carry = 0;
+        for (int i = 0; i < n; ++i) {
+            carry += i < a.size() ? (a.at(i) == '1') : 0;
+            carry += i < b.size() ? (b.at(i) == '1') : 0;
+            if (carry % 2 == 1) ans.push_back('1');
+            else ans.push_back('0');
+            carry /= 2;
+        }
+        if (carry) ans.push_back('1');
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
