@@ -18,7 +18,7 @@
 题解：
 
 设计一个queue和一个deque。
-deque永远记录当前queue中的最大数。
+deque永远记录当前queue中的最大数。最关键一点是：每次新插入节点的时候，deque都要把队伍中比它小的节点弹出以保证deque中永远保存queue中的最大数。
 
 class MaxQueue {
 public:
