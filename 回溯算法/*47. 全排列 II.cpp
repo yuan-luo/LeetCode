@@ -14,6 +14,11 @@ https://leetcode-cn.com/problems/permutations-ii/
   [2,1,1]
 ]
 
+注意：
+
+求组合的时候要注意循环是从0开始。
+注意剪枝条件 if (i > 0 && nums[i] == nums[i - 1] && visited[i - 1] == 0) continue;
+
 class Solution {
 public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
