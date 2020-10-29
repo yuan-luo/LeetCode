@@ -15,9 +15,26 @@
   [1,4],
 ]
 
+题解：
+
+k即depth用来控制结果长度。
+
 class Solution {
 public:
     vector<vector<int>> combine(int n, int k) {
-        vector<vector<int>> ans;
+        vector<int> out;
+        vector<vector<int>> res;
+        helper(n, res, out, 1, k);
+        return res;
+    }
+    
+    void helper(int n, vector<vector<int>>& res, vector<int>& out, int level, int depth) {
+        if (out.size() == depth) res.push_back(out);
+        for (int i = level; i <= n; ++i) {
+            out.push_back(i);
+            helper(n, res, out, i + 1, depth);
+            out.pop_back();
+        }
+        
     }
 };
