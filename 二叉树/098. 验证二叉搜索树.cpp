@@ -10,8 +10,8 @@
 
 注意：
 
-这道题lower和upper必须是long类型。
-if (root->val <= lower || root->val >= upper) 这里的判断必须是小于等于和大于等于。
+这道题lower和upper必须是long类型，因为要考虑越界情况。
+if (root->val <= lower || root->val >= upper) 这里的判断必须是小于等于和大于等于，因为如果是等于也不满足BST的条件。
 
 class Solution {
 public:
