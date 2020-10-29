@@ -16,10 +16,19 @@ public:
 
     int gainSum(TreeNode* root, int& ans) {
         if (root == nullptr) return 0;
+        // 递归计算左右子节点的最大贡献值
         int l = max(0, gainSum(root->left, ans));
         int r = max(0, gainSum(root->right, ans));
+        // 节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值之和
         int sum = l + r + root->val;
+        // 更新答案
         ans = max(sum, ans);
+        // 返回节点的最大贡献值
         return max(l, r) + root->val;
     }
 };
+
+时间复杂度：O(N)，其中 N 是二叉树中的节点个数。对每个节点访问不超过 2 次。
+
+空间复杂度：O(N)，其中 N 是二叉树中的节点个数。空间复杂度主要取决于递归调用层数，最大层数等于二叉树的高度，最坏情况下，二叉树的高度等于二叉树中的节点个数。
+
