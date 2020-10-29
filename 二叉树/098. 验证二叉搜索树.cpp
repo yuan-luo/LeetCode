@@ -8,6 +8,11 @@
 节点的右子树只包含大于当前节点的数。
 所有左子树和右子树自身必须也是二叉搜索树。
 
+注意：
+
+这道题lower和upper必须是long类型。
+if (root->val <= lower || root->val >= upper) 这里的判断必须是小于等于和大于等于。
+
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
