@@ -16,6 +16,11 @@
   []
 ]
 
+注意：
+
+求排列的时候循环下标从level开始，并且helper(ans, out, nums, i + 1)，这里我曾经做错成level + 1。
+另外结果输出的时候不需要level==nums.size() - 1。
+
 class Solution {
 public:
     vector<vector<int>> subsets(vector<int>& nums) {
