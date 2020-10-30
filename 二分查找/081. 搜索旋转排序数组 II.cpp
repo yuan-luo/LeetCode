@@ -21,4 +21,30 @@ https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/
 这是 搜索旋转排序数组 的延伸题目，本题中的 nums  可能包含重复元素。
 这会影响到程序的时间复杂度吗？会有怎样的影响，为什么？
 
+题解：
 
+这道题最关键的就是当nums[mid] == nums[high]的时候把high--.
+这也是和之前那道搜索旋转排序数组题目的唯一区别的地方。
+
+class Solution {
+public:
+    bool search(vector<int>& nums, int target) {
+        if (nums.size() == 0) return false;
+        int low = 0, high = nums.size() - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (nums[mid] == target) return true;
+            
+            if (nums[mid] > nums[high]) {
+                if(nums[mid] > target && nums[low] <= target) high = mid - 1;
+                else low = mid + 1;
+            } else if (nums[mid] < nums[high]) {
+                if (nums[mid] < target && nums[high] >= target) low = mid + 1;
+                else high = mid - 1;
+            } else {
+                high-- ;
+            }
+        }
+        return false;
+    }
+};
