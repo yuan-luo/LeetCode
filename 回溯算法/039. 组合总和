@@ -26,6 +26,10 @@ candidates 中的数字可以无限制重复被选取。
   [3,5]
 ]
 
+注意：
+
+注意这道题和77题的区别。这道题的数字可以重复，所以在迭代的时候i不要i+1.
+
 class Solution {
 public:
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
