@@ -37,7 +37,6 @@ public:
             tree[i] = tree[i * 2] + tree[i * 2 + 1];
     }
 
-    
     void update(int pos, int val) {
         pos += n;
         tree[pos] = val;
