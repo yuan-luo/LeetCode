@@ -15,6 +15,7 @@
 输入: nums = [5,7,7,8,8,10], target = 6
 输出: [-1,-1]
 
+https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/discuss/14699/Clean-iterative-solution-with-two-binary-searches-(with-explanation)
 
 class Solution {
 public:
