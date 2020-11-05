@@ -20,6 +20,34 @@ public:
         vector<vector<int>> res;
         int flag = false;
         for (int i = 0; i < intervals.size(); ++i) {
+            if (newInterval[0] > intervals[i][1]) {
+                // case 1: 如果新区间的左界大于当前区间的右界，说明两个区间不相交，要把当前区间加进结果。
+                res.push_back(intervals[i]);
+            }
+            else if (newInterval[1] < intervals[i][0]) {
+                // case 2: 如果新区间的右界小于当前区间的左界，说明两个区间不相交，要把当前区间加进结果。
+                res.push_back(intervals[i]);
+            } else {
+                // case 3: 合并区间 
+                newInterval[0] = min(newInterval[0], intervals[i][0]);
+                newInterval[1] = max(newInterval[1], intervals[i][1]);                
+            }
+        }
+        res.push_back(newInterval);
+        sort(res.begin(), res.end());
+
+        return res;
+    }
+};
+
+解法二：
+
+class Solution {
+public:
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        vector<vector<int>> res;
+        int flag = false;
+        for (int i = 0; i < intervals.size(); ++i) {
             // case 1: 如果新区间的左界大于当前区间的右界，说明两个区间不相交，要把当前区间加进结果。
             if (newInterval[0] > intervals[i][1]) {
                 res.push_back(intervals[i]);
