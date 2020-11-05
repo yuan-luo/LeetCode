@@ -18,7 +18,6 @@ class Solution {
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
         vector<vector<int>> res;
-        int flag = false;
         for (int i = 0; i < intervals.size(); ++i) {
             if (newInterval[0] > intervals[i][1]) {
                 // case 1: 如果新区间的左界大于当前区间的右界，说明两个区间不相交，要把当前区间加进结果。
