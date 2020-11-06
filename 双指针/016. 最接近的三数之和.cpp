@@ -17,7 +17,7 @@ public:
         int diff = abs(target - closet);
         
         for (int k = 0; k < nums.size() - 2; k++) {
-            int left = k + 1; right = nums.size()-1;
+            int left = k + 1; right = nums.size() - 1;
             while (left < right) {
                 int sum = nums[k] + nums[left] + nums[right];
                 if (abs(target - sum) < diff) {
