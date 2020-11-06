@@ -13,6 +13,7 @@
 
 解题思路：
 
+https://www.cnblogs.com/galaxy-hao/p/12431322.html
 设置双指针 l 和 r，初始值分别从1 和 2 开始，通过数学方法计算sum值，然后sum值和target大小关系分下面三种情况讨论：
 1. sum == target：找到满足条件的[l, r]，加入结果集；
 2. sum < target：则移动右指针
