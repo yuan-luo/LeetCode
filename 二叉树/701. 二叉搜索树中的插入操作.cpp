@@ -17,3 +17,23 @@ public:
         return root;
     }
 };
+
+非递归解法：
+
+class Solution {
+public:
+    TreeNode* insertIntoBST(TreeNode* root, int val) {
+        if (root == nullptr) { root = new TreeNode(val); return root; }
+        TreeNode *cur = root;
+        while (true) {
+            if (val < cur->val) {
+                if (cur->left == nullptr) { cur->left = new TreeNode(val); break; }
+                cur = cur->left;
+            } else {
+                if (cur->right == nullptr) { cur->right = new TreeNode(val); break; }
+                cur = cur->right;
+            }
+        }
+        return root;
+    }
+};
