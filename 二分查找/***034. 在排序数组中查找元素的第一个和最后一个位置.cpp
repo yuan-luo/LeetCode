@@ -46,8 +46,40 @@ public:
     }
 };
 
+解法二：（推荐）
 
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        vector<int> ans{-1, -1};
+        if (nums.size() == 0) return ans;
+        int left = 0, right = nums.size() - 1;
+        if (target < nums[left] || target > nums[right]) return {-1, -1};
 
+        // 找左边界
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] < target) left = mid + 1;
+            else if (nums[mid] > target) right = mid - 1;
+            else right = mid;
+        }
+        if (nums[left] != target) ans[0] = -1;
+        else ans[0] = left;
+
+        // 找右边界
+        left = 0, right = nums.size() - 1;
+        while (left < right) {
+            int mid = left + (right - left + 1) / 2; // 注意这里mid要加1/2，因为要考虑往右边靠近
+            if (nums[mid] < target) left = mid + 1;
+            else if (nums[mid] > target) right = mid - 1;
+            else left = mid;
+        }
+        if (nums[left] != target) ans[1] = -1;
+        else ans[1] = left;
+
+        return ans;
+    }
+};
 
 
 
