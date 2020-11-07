@@ -16,12 +16,13 @@
 通过次数160,368提交次数354,214
 
 题解：
+
 这道题可以用DP做，也可以用二分查找做。
 
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
-        vector<int> dp(nums.size(), 1);
+        vector<int> dp(nums.size(), 1); // 犯过错误：注意这里初始化为1
         int res = 0;
         
         for (int i = 0; i < nums.size(); ++i) {
@@ -30,7 +31,7 @@ public:
                     dp[i] = max(dp[i], dp[j] + 1);
                 }
             }
-            res = max(res, dp[i]);
+            res = max(res, dp[i]); // 犯过错误：这里res的比较要在大的循环里面而不是里层循环。
         }
         return res;
     }
