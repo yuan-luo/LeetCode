@@ -13,6 +13,8 @@
  
 ================================================================
 
+解法一：（推荐）
+
 class Solution {
 public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
@@ -39,6 +41,8 @@ public:
 };
 
 解法二：
+
+多一个flag判断，增加了算法的复杂度，降低了可读性。
 
 class Solution {
 public:
