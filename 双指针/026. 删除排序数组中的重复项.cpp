@@ -19,20 +19,19 @@ https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
 
 题解：
 
-设计两个快慢下标游标，i指向不重复元素的下标，j指向当前要处理的元素的下标。
-当出现新不重复元素时++i，并且把nums[j]赋给nums[i]。
+设计两个快慢下标游标，storeIndex指向不重复元素的下标，i指向当前要处理的元素的下标。
+当出现新不重复元素时++storeIndex，并且把nums[i]赋给nums[storeIndex]。
 
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
         if (nums.size() == 0) return 0;
-        int i = 0;
-        for (int j = 1; j < nums.size(); ++j) {
-            if (nums[i] != nums[j]) {
-                ++i;
-                nums[i] = nums[j];
+        int storeIndex = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (nums[i] != nums[storeIndex]) {
+                nums[++storeIndex] = nums[i];
             }
         }
-        return i + 1;
+        return storeIndex + 1;
     }
 };
