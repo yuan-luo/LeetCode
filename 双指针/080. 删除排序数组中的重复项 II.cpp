@@ -18,6 +18,14 @@ https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array-ii/
  
 =============================================================
 
+题解分析:
+
+很难想到这个nums[fast] != nums[slow - 1]，非常巧妙。第二次做这道题的时候没有想出来这一点。
+
+0 1 2 3 4 5  index
+1 1 1 1 2 3  fast  
+1 1 2 3      slow
+
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
