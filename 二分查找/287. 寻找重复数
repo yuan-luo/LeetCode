@@ -55,6 +55,7 @@ public:
             if (cnt <= mid) left = mid + 1;
             else right = mid; 
         }
-        return right;
+        return left;
     }
 };
+
