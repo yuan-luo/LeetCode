@@ -16,23 +16,48 @@ k 是一个正整数，它的值小于或等于链表的长度。
 
 当 k = 3 时，应当返回: 3->2->1->4->5
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        
+
+        // D->1->2->3->[4->5->6]->7
+        // =>
+        // D->[3->2->1]->[6->5->4]->7
+
+        ListNode dummy;
+        dummy.next = head;
+        ListNode* prev = &dummy;
+        while (prev != nullptr) {
+            prev = reverseNextKGroup(prev, k);
+        }
+
+        return dummy.next;
     }
 
-    ListNode *reverseList(ListNode* head) {
-        
+    // head->n1->n2->...->nk->nk+1
+    // =>
+    // head->nk->nk-1->...->n1->nk+1
+    ListNode* reverseNextKGroup(ListNode* head, int k) {
+        ListNode* curr = head;
+        ListNode* n1 = head->next;
+        for (int i = 0; i < k; ++i) {
+            curr = curr->next;
+            if (curr == nullptr) return nullptr;
+        }
+        ListNode* nk = curr;
+        ListNode* nkplus = curr->next;
+        ListNode* prev = head;
+        curr = head->next;
+        while (curr != nkplus) {
+            ListNode* tmp = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = tmp;
+        }
+
+        // head->n1 nk->nk-1->...->n1<->head
+        head->next = nk;
+        n1->next = nkplus;
+        return n1;
     }
 };
