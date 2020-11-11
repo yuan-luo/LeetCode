@@ -46,7 +46,7 @@ public:
         if (needle.size() == 0) return 0;
         if (haystack.size() < needle.size()) return -1;
         int left = 0;
-        for (int i = 0; i <= haystack.size() - needle.size(); ++i) { // 犯过错误：<=写成了<
+        for (int i = 0; i <= haystack.size() - needle.size(); ++i) { // 犯过错误：<=写成了< ，导致"a" "a"这个case过不了。
             for (left = 0; left < needle.size(); ++left) { // 这里i指针不动的做法没有想出来。
                 if (haystack[i + left] != needle[left]) break; 
             }
