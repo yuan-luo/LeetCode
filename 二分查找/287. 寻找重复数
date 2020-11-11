@@ -45,15 +45,15 @@ public:
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        int left = 1, right = nums.size();
+        int left = 0, right = nums.size() - 1;
         while (left < right) {
-            int cnt = 0;
             int mid = left + (right - left) / 2;
-            for (auto num : nums) {
-                if (num <= mid) ++cnt;
+            int cnt = 0;
+            for (int i = 0; i < nums.size(); ++i) {
+                if (nums[i] <= mid) ++cnt;
             }
-            if (cnt <= mid) left = mid + 1;
-            else right = mid; 
+            if (cnt <= mid) left = mid + 1; // 说明在mid右边找，不包括mid
+            else right = mid; //在mid左边找，包括mid
         }
         return left;
     }
