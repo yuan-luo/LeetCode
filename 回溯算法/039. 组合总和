@@ -26,9 +26,9 @@ candidates 中的数字可以无限制重复被选取。
   [3,5]
 ]
 
-注意：
+题解注意事项：
 
-注意这道题和77题的区别。这道题的数字可以重复，所以在迭代的时候i不要i+1.
+千万要注意这道题和77题求组合的区别。这道题的数字可以重复，所以在迭代的时候输入参数depth为i，而不是i+1。已经犯过两次错误。不能犯第三次。
 
 class Solution {
 public:
@@ -49,7 +49,7 @@ public:
         for (int i = depth; i < candidates.size(); ++i) {
             if (candidates[i] <= target) {
                 out.push_back(candidates[i]);
-                helper(ans, out, candidates, i, target - candidates[i]);
+                helper(ans, out, candidates, i, target - candidates[i]); // 特别注意这道题的depth继续为i，因为迭代的时候每个数组可以重复，所以要重复计算。
                 out.pop_back();                
             }
         }
