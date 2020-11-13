@@ -32,7 +32,7 @@ public:
         if (out.size() == depth) res.push_back(out);
         for (int i = level; i <= n; ++i) {
             out.push_back(i);
-            helper(n, res, out, i + 1, depth);
+            helper(n, res, out, i + 1, depth); // 犯过错误： i + 1写成level + 1
             out.pop_back();
         }
         
