@@ -48,7 +48,7 @@ public:
     }
 
 private:
-    queue<int> q;
+    queue<int> q; // 犯过错误，把queue写成priority_queue!!
     deque<int> dq;
 
 };
