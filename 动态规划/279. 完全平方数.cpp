@@ -35,3 +35,9 @@ public:
         return dp[n];
     }
 };
+
+int main(){
+    Solution s;
+    std::cout<<s.numSquares(256)<<std::endl;
+    return 0;
+}
