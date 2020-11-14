@@ -15,10 +15,29 @@ https://leetcode-cn.com/problems/sort-colors/
 输出: [0,0,1,1,2,2]
 
 =====================================================
+题解一：
+
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int p0 = 0, p2 = nums.size() - 1;
+        for (int i = 0; i <= p2; ++i) {
+            while (nums[i] == 2 && i < p2) {
+                swap(nums[i], nums[p2]);
+                --p2;
+            }            
+            while (nums[i] == 0 && i > p0) { 
+                swap(nums[i], nums[p0]);
+                ++p0;
+            } 
+        }
+    }
+};
+
+题解二：
 
 我犯过一个错误是把i的下界设成nums.size()，这里应该设置为r。因为r后面的数字全部是2了。
         for (int i = 0; i < nums.size(); ++i) {
-
 
 class Solution {
 public:
