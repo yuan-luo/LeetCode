@@ -15,6 +15,31 @@
 
 题解：
 
+题解一：推荐
+
+https://leetcode.com/problems/perfect-squares/discuss/71488/Summary-of-4-different-solutions-(BFS-DP-static-DP-and-mathematics)
+dp[i] = the least number of perfect square numbers which sum to i. Note that dp[0] is 0.
+For each i, it must be the sum of some number (i - j*j) and a perfect square number (j*j).
+
+class Solution {
+public:
+    int numSquares(int n) {
+        if (n <= 0) return 0;
+        vector<int> dp(n + 1, INT_MAX);
+        dp[0] = 0;
+
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j * j <= i; ++j) {
+                dp[i] = min(dp[i - j * j] + 1, dp[i]);
+            }
+        }
+        return dp.back();
+    }
+};
+
+
+题解二：
+
 建立一个长度为 n+1 的一维dp数组，将第一个值初始化为0，其余值都初始化为 INT_MAX, 
 i从0循环到n，j从1循环到 i+j*j <= n 的位置，然后每次更新 dp[i+j*j] 的值，动态更新 dp 数组，
 其中 dp[i] 表示正整数i最少能由多个完全平方数组成，那么我们求n，就是返回 dp[n] 即可，也就是 dp 数组的最后一个数字。
