@@ -3,6 +3,6 @@
 
 | 题目                                                         | 提示               |
 | ------------------------------------------------------------ | ------------------ |
-| [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii/)（必做） | 勤加练习 |
+| [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii/)（必做） | 凡是改变链表结构的题都要加一个dummy指针 |
 |  |                    |
 
