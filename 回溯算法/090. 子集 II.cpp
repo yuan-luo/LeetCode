@@ -17,6 +17,10 @@
   []
 ]
 
+题解：
+
+子集II这道题一定要先排序。
+
 class Solution {
 public:
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
