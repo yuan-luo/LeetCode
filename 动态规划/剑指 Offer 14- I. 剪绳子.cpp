@@ -1,35 +1,33 @@
 剑指 Offer 14- I. 剪绳子
 
-给你一个整数数组 nums ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。
+给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n>1并且m>1），
+每段绳子的长度记为 k[0],k[1]...k[m-1] 。请问 k[0]*k[1]*...*k[m-1] 可能的最大乘积是多少？
+例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
 
-示例 1:
+示例 1：
 
-输入: [2,3,-2,4]
-输出: 6
-解释: 子数组 [2,3] 有最大乘积 6。
+输入: 2
+输出: 1
+解释: 2 = 1 + 1, 1 × 1 = 1
+    
+示例 2:
 
-示例 2:
+输入: 10
+输出: 36
+解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36
 
-输入: [-2,0,-1]
-输出: 0
-解释: 结果不能为 2, 因为 [-2,-1] 不是子数组。
-
-解题思路：
-
-这道题其实没用动态规划做。注意一下如果小于零的话，要把最小值和最大值交换一下。
 
 class Solution {
 public:
-    int maxProduct(vector<int>& nums) {
-        int ans = INT_MIN;
-        int minProd = 1;
-        int maxProd = 1;
-        for (int i = 0; i < nums.size(); ++i) {
-            if (nums[i] < 0) swap(minProd, maxProd);
-            minProd = min(nums[i], minProd * nums[i]);
-            maxProd = max(nums[i], maxProd * nums[i]);
-            ans = max(ans, maxProd);
+    int cuttingRope(int n) {
+        vector<int> dp(n + 1);
+        for (int i = 2; i <= n; ++i) {
+            int curMax = 0;
+            for (int j = 1; j < i; ++j) {
+                curMax = max(curMax, max(j * (i - j), j * dp[i - j]));
+            }
+            dp[i] = curMax;
         }
-        return ans;
+        return dp.back();        
     }
 };
