@@ -17,3 +17,20 @@
 
 输出: 6
 
+class Solution {
+public:
+    int countNodes(TreeNode* root) {
+        int nLeft = 0, nRight = 0;
+        TreeNode *pLeft = root, *pRight = root;
+        while (pLeft != nullptr) {
+            nLeft++;
+            pLeft = pLeft->left;
+        }
+        while (pRight != nullptr) {
+            nRight++;
+            pRight = pRight->right;
+        }
+        if (nLeft == nRight) return pow(2, nLeft) - 1;
+        return 1 + countNodes(root->left) + countNodes(root->right);
+    }
+};
