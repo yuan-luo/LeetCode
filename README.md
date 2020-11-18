@@ -22,6 +22,6 @@ https://www.facebook.com/hashtag/codinginterviews
 牛客网-字节跳动  
 https://www.nowcoder.com/discuss/tag/665
 
-用Python解答LeetCode的repo
+用Python解答LeetCode的repo  
 https://github.com/maemual/solution4leetcode
 
