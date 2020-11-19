@@ -2,9 +2,9 @@
 
 本网页记录了本人刷LeetCode的题解和一些个人心得。
 
-LeetCode里面没有简单题。要重视每一道题，包括easy难度，都有技巧，都有坑。
+LeetCode里面没有简单题。要重视每一道题，包括easy难度，都有技巧，都有坑。  
 
-# LeetCode按标签出现频率  
+LeetCode按标签出现频率  
 https://www.nowcoder.com/discuss/295269?type=0&order=0&pos=6&page=1
 
 LeetCode 频率排序截图  
