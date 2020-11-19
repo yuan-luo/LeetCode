@@ -14,4 +14,20 @@ https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/
 6 的右侧有 1 个更小的元素 (1)
 1 的右侧有 0 个更小的元素
  
-
+class Solution {
+public:
+    vector<int> countSmaller(vector<int>& nums) {
+        vector<int> tmp, ans(nums.size());
+        for (int i = nums.size() - 1; i >= 0; --i) {
+            int left = 0, right = tmp.size();
+            while (left < right) {
+                int mid = left + (right - left) / 2;
+                if (tmp[mid] >= nums[i]) right = mid;
+                else left = mid + 1;                
+            }
+            ans[i] = right; 
+            tmp.insert(tmp.begin() + right, nums[i]);
+        }
+        return ans;
+    }
+};
