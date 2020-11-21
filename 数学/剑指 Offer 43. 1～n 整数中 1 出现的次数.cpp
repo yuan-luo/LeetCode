@@ -4,7 +4,19 @@
 例如，输入12，1～12这些整数中包含1 的数字有1、10、11和12，1一共出现了5次。
 
 
+class Solution {
+public:
+    int countDigitOne(int n) {
+        int ones = 0;
+        for (long m = 1; m <= n; m *= 10)
+            ones += (n / m + 8) / 10 * m + (n / m % 10 == 1 ? n % m + 1 : 0);
+        return ones;
+    }
+};
+
 题解出自：
+
+https://blog.csdn.net/darlingwood2013/article/details/90477318
 
 https://cloud.tencent.com/developer/article/1399281
 
