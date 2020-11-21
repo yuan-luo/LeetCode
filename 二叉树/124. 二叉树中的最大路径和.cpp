@@ -8,7 +8,6 @@
 class Solution {
 public:
     int maxPathSum(TreeNode* root) {
-        if (root == nullptr) return 0;
         int ans = INT_MIN;
         gainSum(root, ans);
         return ans;
@@ -17,14 +16,14 @@ public:
     int gainSum(TreeNode* root, int& ans) {
         if (root == nullptr) return 0;
         // 递归计算左右子节点的最大贡献值
-        int l = max(0, gainSum(root->left, ans));
-        int r = max(0, gainSum(root->right, ans));
+        int left = max(0, gainSum(root->left, ans));
+        int right = max(0, gainSum(root->right, ans));
         // 节点的最大路径和取决于该节点的值与该节点的左右子节点的最大贡献值之和
-        int sum = l + r + root->val;
+        int sum = left + right + root->val;
         // 更新答案
         ans = max(sum, ans);
         // 返回节点的最大贡献值
-        return max(l, r) + root->val;
+        return max(left, right) + root->val;
     }
 };
 
