@@ -6,6 +6,25 @@
 
 n & (n - 1)运算每次能够移除n最右边的1。
 
+题解：
+
+更直观的一种写法：
+
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int ans = 0;
+        for (int i = 0; i < 32; ++i) {
+            ans += n & 1;
+            n = n >> 1;
+        }
+        return ans;
+    }
+};
+
+相对晦涩的一种写法：
+x = x & (x - 1) 清零最低位的1
+
 class Solution {
 public:
     int hammingWeight(uint32_t n) {
