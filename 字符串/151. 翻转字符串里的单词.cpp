@@ -15,26 +15,50 @@ https://leetcode-cn.com/problems/reverse-words-in-a-string/
 
 输入："the sky is blue"
 输出："blue is sky the"
+    
 示例 2：
 
 输入："  hello world!  "
 输出："world! hello"
 解释：输入字符串可以在前面或者后面包含多余的空格，但是反转后的字符不能包括。
+
 示例 3：
 
 输入："a good   example"
 输出："example good a"
 解释：如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。
+
 示例 4：
 
 输入：s = "  Bob    Loves  Alice   "
 输出："Alice Loves Bob"
+    
 示例 5：
 
 输入：s = "Alice does not even like bob"
 输出："bob like even not does Alice"
 
+解题分析：
 
+1. 这里的设计引入一个storeIndex来记录当前处理到的字符串下标，包含空格和字母。
+
+2. 引入j用来记录处理的某一个单词时候字母的下标。
+
+3. i永远是某一个单词的词首字母，还有遇到空格就跳过。如果遇到不是空格就开始新一轮单词的处理。
+每轮处理都会走完一个单词。如果storeIndex不为0，说明不是第一个单词，这时候就要加一个空格。
+
+"the sky is blue" 第一次反转以后为
+"eulb si yks eht"
+
+在处理循环处理第一个单词时
+while (j < n && s[j] != ' ') s[storeIndex++] = s[j++];
+上面循环结束后 i=0, j=4, storeIndex=4
+计算单词长度为4。
+注意：reverse(first, last)函数只反转[first, last)区间，所以s[4]=' '不参与反转。
+
+完全翻转以后结果为：
+"blue is sky the"
+    
 class Solution {
 public:
     string reverseWords(string s) {
@@ -63,23 +87,4 @@ public:
     }
 };
 
-分析：
-
-1. 这里的设计引入一个storeIndex来记录当前处理到的字符串下标，包含空格和字母。
-
-2. 引入j用来记录处理的某一个单词时候字母的下标。
-
-3. i永远是某一个单词的词首字母，还有遇到空格就跳过。如果遇到不是空格就开始新一轮单词的处理。
-每轮处理都会走完一个单词。如果storeIndex不为0，说明不是第一个单词，这时候就要加一个空格。
-
-"the sky is blue" 第一次反转以后为
-"eulb si yks eht"
-
-在处理循环处理第一个单词时
-while (j < n && s[j] != ' ') s[storeIndex++] = s[j++];
-上面循环结束后 i=0, j=4, storeIndex=4
-计算单词长度为4。
-注意：reverse(first, last)函数只反转[first, last)区间，所以s[4]=' '不参与反转。
-
-"blue is sky the"
 
