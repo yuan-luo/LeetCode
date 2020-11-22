@@ -26,14 +26,14 @@ public:
     }
 
     void helper(vector<vector<int>>& ans, vector<int>& out, vector<int>& nums, vector<int>& visited, int level) {
-        if (level == nums.size()) ans.push_back(out); // 错误：写成了==nums.size() - 1
+        if (level == nums.size()) ans.push_back(out); // 曾犯错误：写成了==nums.size() - 1
         for (int i = 0; i < nums.size(); ++i) {
-            if (visited[i] == 0) {  // 错误： 没有考虑visited数组
+            if (visited[i] == 0) {  // 曾犯错误： 没有考虑visited数组
                 out.push_back(nums[i]);
                 visited[i] = 1;
-                helper(ans, out, nums, visited, level + 1); // 错误：用i+1，而不是level+1，说明没有理解清楚算法
+                helper(ans, out, nums, visited, level + 1); // 曾犯错误：用i+1，而不是level+1，说明没有理解清楚算法。子集那道题才是i+1。
                 out.pop_back();
-                visited[i] = 0; //错误：把最后三行放到了if条件作用域的外面
+                visited[i] = 0; // 曾犯错误：把最后三行放到了if条件作用域的外面
             }
         }
     }
