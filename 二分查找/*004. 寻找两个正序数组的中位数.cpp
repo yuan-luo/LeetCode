@@ -72,13 +72,13 @@ public:
 
             // nums_im1, nums_i, nums_jm1, nums_j 分别表示 nums1[i-1], nums1[i], nums2[j-1], nums2[j]
             int left_part1 = (i == 0 ? INT_MIN : nums1[i - 1]);
-            int ritgh_part1 = (i == m ? INT_MAX : nums1[i]);
+            int right_part1 = (i == m ? INT_MAX : nums1[i]);
             int left_part2 = (j == 0 ? INT_MIN : nums2[j - 1]);
             int right_part2 = (j == n ? INT_MAX : nums2[j]);
 
             if (left_part1 <= right_part2) {
                 median1 = max(left_part1, left_part2);
-                median2 = min(ritgh_part1, right_part2);
+                median2 = min(right_part1, right_part2);
                 left = i + 1;
             }
             else {
