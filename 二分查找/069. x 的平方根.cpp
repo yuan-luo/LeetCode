@@ -10,14 +10,14 @@ class Solution {
 public:
     int mySqrt(int x) {
         int ans = -1;
-        int l = 0, r = x;
-        while (l <= r) {
-            int mid = l + (r - l) / 2;
+        int left = 0, right = x;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
             if ((long long) mid * mid <= x) {
                 ans = mid;
-                l = mid + 1;
+                left = mid + 1;
             } else {
-                r = mid - 1;
+                right = mid - 1;
             }
         }
         return ans;
