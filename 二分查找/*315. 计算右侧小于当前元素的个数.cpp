@@ -13,7 +13,11 @@ https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/
 2 的右侧仅有 1 个更小的元素 (1)
 6 的右侧有 1 个更小的元素 (1)
 1 的右侧有 0 个更小的元素
- 
+
+解题思路：
+
+从右到左二分查找插入排序。
+ 
 class Solution {
 public:
     vector<int> countSmaller(vector<int>& nums) {
