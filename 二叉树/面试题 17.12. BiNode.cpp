@@ -1,6 +1,7 @@
 面试题 17.12. BiNode
 
-二叉树数据结构TreeNode可用来表示单向链表（其中left置空，right为下一个链表节点）。实现一个方法，把二叉搜索树转换为单向链表，要求依然符合二叉搜索树的性质，转换操作应是原址的，也就是在原始的二叉搜索树上直接修改。
+二叉树数据结构TreeNode可用来表示单向链表（其中left置空，right为下一个链表节点）。
+实现一个方法，把二叉搜索树转换为单向链表，要求依然符合二叉搜索树的性质，转换操作应是原址的，也就是在原始的二叉搜索树上直接修改。
 
 返回转换后的单向链表的头节点。
 
@@ -36,5 +37,27 @@ public:
             pre = inorder(root->right, pre);
         }
         return pre;
+    }
+};
+
+另外一种写法，inorder没有返回值。这种情况下pre要加TreeNode* &pre。
+因为中序遍历到左下角后，回溯回来的pre，如果不加引用，那pre就是第一次的值，就是初始值。
+
+class Solution {
+public:
+    TreeNode* convertBiNode(TreeNode* root) {
+        TreeNode dummy;
+        TreeNode *pre = &dummy;
+        inorder(root, pre);
+        return dummy.right;
+    }
+
+    void inorder(TreeNode* root, TreeNode* &pre) {
+        if (root == nullptr) return;
+        inorder(root->left, pre);
+        pre->right = root;
+        root->left = nullptr;
+        pre = root;
+        inorder(root->right, pre);
     }
 };
