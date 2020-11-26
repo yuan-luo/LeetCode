@@ -13,6 +13,10 @@ n: 13   k: 2
 解释:
 字典序的排列是 [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9]，所以第二小的数字是 10。
 
+解题思路：
+
+https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/discuss/92242/ConciseEasy-to-understand-Java-5ms-solution-with-Explaination
+
 class Solution {
 public:
     int findKthNumber(int n, int k) {
