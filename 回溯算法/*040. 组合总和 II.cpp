@@ -28,3 +28,25 @@ candidates 中的每个数字在每个组合中只能使用一次。
   [5]
 ]
 
+class Solution {
+public:
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        vector<int> out;
+        vector<vector<int>> res;
+        sort(candidates.begin(), candidates.end());
+        helper(candidates, target, out,  res, 0);
+        return res;
+    }
+    
+    void helper(vector<int>& candidates, int target, vector<int>& out, vector<vector<int>>& res, int start) {
+        if (target < 0) return;
+        if (target == 0) res.push_back(out);
+        for (int i = start; i < candidates.size(); ++i) {
+            if (i > start && candidates[i] == candidates[i - 1]) continue;  // <<<<<<<< 去重
+            out.push_back(candidates[i]);
+            helper(candidates, target - candidates[i], out, res, i + 1);  // <<<<<<<<< i + 1
+            out.pop_back();
+        }
+    }
+};
+
