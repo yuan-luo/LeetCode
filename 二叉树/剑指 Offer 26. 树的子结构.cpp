@@ -41,6 +41,7 @@ public:
         return hasSubStructure(A, B) || isSubStructure(A->left, B) || isSubStructure(A->right, B);
     }
 
+    // B是不是与A同root的子结构
     bool hasSubStructure(TreeNode* A, TreeNode* B) {
         if (B == nullptr) return true;
         if (A == nullptr) return false;
