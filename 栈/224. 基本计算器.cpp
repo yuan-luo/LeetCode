@@ -8,3 +8,35 @@
 
 输入: "(1+(4+5+2)-3)+(6+8)"
 输出: 23
+
+class Solution {
+public:
+    int calculate(string s) {
+        stack<int> stk, ops;
+        int num = 0;
+        char sign = 1;
+        int ans = 0;
+        for (int i = 0; i < s.size(); ++i) {
+            char c = s[i];
+            if (isdigit(c)) num = num * 10 + (c - '0');
+            else {
+                ans += sign * num;
+                num = 0;
+                if (c == '+') sign = 1;
+                if (c == '-') sign = -1;
+                if (c == '(') {
+                    stk.push(ans);
+                    ops.push(sign);
+                    ans = 0;
+                    sign = 1;
+                }
+                if (c == ')' && ops.size()) {
+                    ans = ops.top() * ans + stk.top();
+                    ops.pop(); stk.pop();
+                }
+            }
+        }
+        ans += sign * num;
+        return ans;
+    }
+};
