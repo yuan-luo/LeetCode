@@ -32,10 +32,13 @@ Boundary case 1: dp[0][j] = 1 for all j;
 Boundary case 2: dp[i][0] = 0 for all positive i.
 Now let's give brief explanations to the four equations above.
 
-If t[i - 1] != s[j - 1], the distinct subsequences will not include s[j - 1] and thus all the number of distinct subsequences will simply be those in s[0..j - 2], which corresponds to dp[i][j - 1];
-If t[i - 1] == s[j - 1], the number of distinct subsequences include two parts: those with s[j - 1] and those without;
-An empty string will have exactly one subsequence in any string.
-Non-empty string will have no subsequences in an empty string.  
+1. If t[i - 1] != s[j - 1], the distinct subsequences will not include s[j - 1] and 
+thus all the number of distinct subsequences will simply be those in s[0..j - 2], 
+which corresponds to dp[i][j - 1];
+2. If t[i - 1] == s[j - 1], the number of distinct subsequences include two parts: 
+those with s[j - 1] and those without;
+3. An empty string will have exactly one subsequence in any string.
+4. Non-empty string will have no subsequences in an empty string.  
   
 class Solution {
 public:
