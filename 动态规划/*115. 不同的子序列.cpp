@@ -8,7 +8,6 @@
 
 题解分析：
 
-Solution (DP):
 We keep a m*n matrix and scanning through string S, while
 m = T.length() + 1 and n = S.length() + 1
 and each cell in matrix Path[i][j] means the number of distinct subsequences of 
