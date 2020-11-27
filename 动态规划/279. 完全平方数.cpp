@@ -19,7 +19,7 @@
 
 https://leetcode.com/problems/perfect-squares/discuss/71488/Summary-of-4-different-solutions-(BFS-DP-static-DP-and-mathematics)
 dp[i] = the least number of perfect square numbers which sum to i. Note that dp[0] is 0.
-For each i, it must be the sum of some number (i - j*j) and a perfect square number (j*j).
+For each i, it must be the sum of some number (i - j * j) and a perfect square number (j * j).
 
 class Solution {
 public:
@@ -61,8 +61,8 @@ public:
     }
 };
 
-int main(){
+int main() {
     Solution s;
-    std::cout<<s.numSquares(256)<<std::endl;
+    std::cout << s.numSquares(256) << std::endl;
     return 0;
 }
