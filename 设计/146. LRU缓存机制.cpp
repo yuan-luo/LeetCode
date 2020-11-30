@@ -42,7 +42,6 @@ public:
             cacheMap.erase(rKey);
             cacheList.pop_back();
         }
-
     }
 private:
     int cap;
