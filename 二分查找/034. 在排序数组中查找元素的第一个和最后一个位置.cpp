@@ -61,7 +61,7 @@ public:
             int mid = left + (right - left) / 2;
             if (nums[mid] < target) left = mid + 1;
             else if (nums[mid] > target) right = mid - 1;
-            else right = mid;
+            else right = mid; // 向左逼近
         }
         if (nums[left] != target) ans[0] = -1;
         else ans[0] = left;
@@ -72,10 +72,10 @@ public:
             int mid = left + (right - left + 1) / 2; // 注意这里mid要加1/2，因为要考虑往右边靠近
             if (nums[mid] < target) left = mid + 1;
             else if (nums[mid] > target) right = mid - 1;
-            else left = mid;
+            else left = mid; // 向右逼近
         }
         if (nums[left] != target) ans[1] = -1;
-        else ans[1] = left;
+        else ans[1] = right;
 
         return ans;
     }
