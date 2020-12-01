@@ -9,19 +9,29 @@
 输入: head = 1->4->3->2->5->2, x = 3
 输出: 1->2->2->4->3->5
 
-=================================
+题解：
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+这道题就是把原链表分割成两个链表，一个小于x，一个大于等于x。然后依次排序插入节点，最后再把它们接起来。
+
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        
+        ListNode dummy1(-1);
+        ListNode dummy2(-1);
+        ListNode *l1 = &dummy1;
+        ListNode *l2 = &dummy2;
+        while (head != nullptr) {
+            if (head->val < x) {
+                l1->next = head;
+                l1 = l1->next;
+            } else {
+                l2->next = head;
+                l2 = l2->next;
+            }
+            head = head->next;
+        }
+        l1->next = dummy2.next;
+        l2->next = nullptr;
+        return dummy1.next;
     }
 };
