@@ -24,12 +24,25 @@ num 不会包含任何前导零。
 输出: "0"
 解释: 从原数字移除所有的数字，剩余为空就是0。
 
-=========================================
-
 class Solution {
 public:
     string removeKdigits(string num, int k) {
-
+        vector<char> stk;
+        for (auto& digit : num) {
+            while (stk.size() > 0 && digit < stk.back() && k > 0) {
+                --k;
+                stk.pop_back();
+            }
+            stk.push_back(digit);
+        }
+        for (; k > 0; --k) stk.pop_back();
+        string ans = "";
+        bool isHeadZero = true;
+        for (int i = 0; i < stk.size(); ++i) {
+            if (isHeadZero && stk[i] == '0') continue;
+            isHeadZero = false;
+            ans += stk[i];
+        }
+        return ans == "" ? "0" : ans;
     }
 };
-
