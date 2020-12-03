@@ -7,6 +7,12 @@
 输入: "(1+(4+5+2)-3)+(6+8)"
 输出: 23
 
+题解：
+
+sign用来表示符号是正数还是负数。num表示一个数。
+我们用一个stack记录结果，用一个ops stack记录操作符。
+每当遇到左括号时push入栈，遇到有括号时出栈记录结果。 
+    
 class Solution {
 public:
     int calculate(string s) {
