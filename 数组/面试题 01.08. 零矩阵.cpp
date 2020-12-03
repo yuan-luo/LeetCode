@@ -15,27 +15,27 @@ public:
         bool zeroRow = false, zeroCol = false;
         if (matrix.size() == 0 || matrix[0].size() == 0) return;
         for (int i = 0; i < matrix.size(); ++i) 
-            if(matrix[i][0] == 0) zeroRow = true;
+            if(matrix[i][0] == 0) zeroCol = true;
         for (int i = 0; i < matrix[0].size(); ++i) 
-            if(matrix[0][i] == 0) zeroCol = true;
-        for (int i = 1; i < matrix.size(); ++i) {
-            for (int j = 1; j < matrix[0].size(); ++j) {
+            if(matrix[0][i] == 0) zeroRow = true;
+        for (int i = 1; i < matrix.size(); ++i) {  // 注意：这里是从1开始而不是从0开始。
+            for (int j = 1; j < matrix[0].size(); ++j) { // 注意：这里是从1开始而不是从0开始。
                 if (matrix[i][j] == 0) {
                     matrix[i][0] = 0;
                     matrix[0][j] = 0;
                 }
             }
         }
-        for (int i = 1; i < matrix.size(); ++i) {
-            for (int j = 1; j < matrix[0].size(); ++j) {
+        for (int i = 1; i < matrix.size(); ++i) { // 注意：这里是从1开始而不是从0开始。
+            for (int j = 1; j < matrix[0].size(); ++j) { // 注意：这里是从1开始而不是从0开始。
                 if (matrix[i][0] == 0 || matrix[0][j] == 0) {
                     matrix[i][j] = 0;
                 }
             }
         }
         for (int i = 0; i < matrix.size(); ++i) 
-            if (zeroRow == true) matrix[i][0] = 0;
+            if (zeroCol == true) matrix[i][0] = 0;
         for (int i = 0; i < matrix[0].size(); ++i) 
-            if(zeroCol == true)  matrix[0][i] = 0;          
+            if(zeroRow == true)  matrix[0][i] = 0;          
     }
 };
