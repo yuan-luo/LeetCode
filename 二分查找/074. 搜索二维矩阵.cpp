@@ -30,3 +30,19 @@ public:
         return false;
     }
 };
+
+比较240题，如果不能保证每行的头比上一行的尾要小，那么解法如下：
+
+class Solution {
+public:
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        if (matrix.size() == 0) return false;
+        int row = 0, col = matrix[0].size() - 1;
+        while (row <= matrix.size() - 1 && col >= 0) {
+            if (matrix[row][col] < target) ++row;
+            else if (matrix[row][col] > target) --col;
+            else return true;
+        }
+        return false;
+    }
+};
