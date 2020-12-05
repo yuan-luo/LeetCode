@@ -22,4 +22,25 @@
 ]
 输出：3
 
-
+class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int ans = 0;
+        if (grid.empty() || grid[0].empty()) return 0;
+        for (int y = 0; y < grid.size(); ++y) {
+            for (int x = 0; x < grid[0].size(); ++x) {
+                ans += grid[y][x] - '0';
+                dfs(grid, y, x);
+            }
+        }
+        return ans;
+    }
+    void dfs(vector<vector<char>>& grid, int y, int x) {
+        if (y < 0 || y > grid.size() - 1 || x < 0 || x > grid[0].size() - 1 || grid[y][x] == '0') return;
+        grid[y][x] = '0';
+        dfs(grid, y - 1, x);
+        dfs(grid, y + 1, x);
+        dfs(grid, y, x - 1);
+        dfs(grid, y, x + 1);
+    }
+};
