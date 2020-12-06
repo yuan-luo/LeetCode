@@ -31,21 +31,22 @@ https://github.com/maemual/solution4leetcode
 LeetCode被各大公司面到的高频试题  
 https://github.com/yuan-luo/LeetcodeTop
 
-
-
-1. binary tree 搜索：    i.  DFS: preorder, inorder, postorder; iteration/recursion https://shawnlyu.com/algorithms/ ... -inorder-postorder/
-    ii. BFS: https://shawnlyu.com/algorithms/ ... algorithms-bfs-dfs/
-    ii. Backtracking: https://shawnlyu.com/algorithms/ ... ions-with-examples/
-2. Sortings: https://shawnlyu.com/algorithms/ ... omplexity-analysis/
+一亩三分地高频题 上岸回馈  
+https://www.1point3acres.com/bbs/thread-690957-1-1.html
+1. binary tree 搜索：  
+    i.  DFS: preorder, inorder, postorder; iteration/recursion https://shawnlyu.com/algorithms/tree-traversal-recursively-iteratively-preorder-inorder-postorder/
+    ii. BFS: https://shawnlyu.com/algorithms/intro-to-graph-algorithms-bfs-dfs/
+    ii. Backtracking: https://shawnlyu.com/algorithms/leetcode-for-interviewdfs-bfs-and-backtracking-ii-how-to-backtrack-detailed-explanations-with-examples/
+2. Sortings: https://shawnlyu.com/algorithms/visualized-python-intro-to-sorting-algorithms-selections-sort-insertion-sort-bucket-sort-bubble-sort-mergesort-quicksort-heapsort-and-their-complexity-analysis/
 3. Topological sort: https://shawnlyu.com/algorithms/graph-algorithm-topological-sort/
-4. TopK problem: https://shawnlyu.com/algorithms/ ... ap-and-quickselect/
-5. 分治思想: https://shawnlyu.com/algorithms/ ... -and-how-to-use-it/
-6. 最短距离Dijkstra: https://shawnlyu.com/algorithms/ ... orithms-i-dijkstra/
-7. 判断linkedlist的环 - 龟兔: https://shawnlyu.com/algorithms/ ... nked-list-cycle-ii/
-8. Trie: https://shawnlyu.com/algorithms/ ... 208-implement-trie/
+4. TopK problem: https://shawnlyu.com/algorithms/top-k-problem-sort-heap-and-quickselect/
+5. 分治思想: https://shawnlyu.com/algorithms/divide-and-conquer-what-is-it-and-how-to-use-it/
+6. 最短距离Dijkstra: https://shawnlyu.com/algorithms/shortest-path-algorithms-i-dijkstra/
+7. 判断linkedlist的环 - 龟兔: https://shawnlyu.com/algorithms/floyds-cycle-detection-algorithm-leetcode142-linked-list-cycle-ii/
+8. Trie: https://shawnlyu.com/algorithms/intro-to-trie-prefix-tree-feat-leetcode-208-implement-trie/
 9. Disjoint set: https://shawnlyu.com/algorithms/disjoint-set-union-find/
 10. MST Prim: https://shawnlyu.com/algorithms/minimum-spanning-tree-prim/
-11. Binary search: https://shawnlyu.com/algorithms/ ... er-and-lower-bound/
+11. Binary search: https://shawnlyu.com/algorithms/binary-search-find-upper-and-lower-bound/
 12. BFS & Bi-BFS: https://shawnlyu.com/algorithms/bfs-and-bi-directional-bfs/
 
 Java Garbage Collection: https://shawnlyu.com/tech/java-garbage-collection/
