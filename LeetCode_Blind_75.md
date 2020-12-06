@@ -1,4 +1,7 @@
-https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions
+https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions  
+
+https://leetcode.com/list/xi4ci4ig/  
+
 ```cpp
 Array
 Two Sum
