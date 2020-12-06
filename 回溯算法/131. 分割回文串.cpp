@@ -13,3 +13,33 @@
   ["a","a","b"]
 ]
 
+题解：
+
+DFS思路。当处理完start到i的字符串为回文数之后，继续深度优先调用i+1处理。
+
+class Solution {
+public:
+    vector<vector<string>> partition(string s) {
+        vector<vector<string>> ans;
+        vector<string> out;
+        helper(s, 0, out, ans);
+        return ans;
+    }
+    void helper(string s, int start, vector<string>& out, vector<vector<string>>& ans) {
+        if (start == s.size()) { ans.push_back(out); return; }
+        for (int i = start; i < s.size(); ++i) {
+            if (!isPalindrome(s, start, i)) continue;
+            out.push_back(s.substr(start, i - start + 1));
+            helper(s, i + 1, out, ans);
+            out.pop_back();
+        }
+    }
+    bool isPalindrome(string s, int start, int end) {
+        while (start < end) {
+            if (s[start] != s[end]) return false;
+            ++start;
+            --end;
+        }
+        return true;
+    }
+};
