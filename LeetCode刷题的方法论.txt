@@ -1,0 +1,958 @@
+关于刷题方法论的一些思考。
+
+参考自：
+https://www.1point3acres.com/bbs/thread-678970-1-1.html
+
+第一章    一些“方法论”
+
+
+在展开具体的干货前，先唠叨一些看起来没用的“废话”。
+
+
+“废话”1：几条需要着重强调的学习要点
+
+系统性的分类学习
+先学会看懂答案
+注意代码风格的养成
+反复训练
+详细的笔记
+提升讲题能力
+任务分配管理
+
+
+系统性的分类学习：
+
+对于计算机基础不扎实的同学，如果按照高频顺序刷三百题，通过每道题反向获取知识，这样的方法不是不可以，但效率可能不高，还会造成知识零散化，不能融会贯通。另外，松散地做300道题，对于我等学弱而言，从执行的层面而言也略显艰难。
+
+面试算法体主要就十几类题型，套路性比较强，经过前人的总结，已经形成了比较完善的体系（300~400题左右）。即便出现很多新题（1600+），大多也能用现有知识体系去化解。
+
+所以不如站在前人的肩膀上，通过中国学生更熟悉的“分类知识学习+核心题目+反复训练+进阶题目+复习升华+融会贯通”的系统性方法进行学习，不但基础更为牢固，而且遇到新题也有现场化解的可能。
+
+在后面的章节里，胖头龙可以分享自己总结的，面试中常见的算法类别，大致介绍每一类需要自学掌握的要点，并附加上题目列表。
+（当然大部分培训机构都有，我只是作为小白分享一点自己的心得。）
+
+
+学会看懂答案：
+
+作为一条咸鱼，在刷透300题之前，不要试图靠自己平庸的大脑跟任何题目死磕。毕竟很多算法问题的最优解，放在几十或上百年前也都是人类知识边缘的数学问题，当年大师们也花了不少功夫才研究出来发论文的，如果被我等弱鸡几十分钟就凭空搞定，大师们不要面子的吗？
+
+所以，对于初学者，一道题十分钟没有想法就不要开脑洞了，而应该直接去寻找标准答案，以最快的速度爬到前人的肩膀上。
+
+首先可以看LeetCode的标准答案，大部分解释的很清楚。你可以先看懂最优解，然后用自己的代码风格写一遍（答案上的代码风格参差不齐，不要被带偏），并记入笔记。如果觉得还是不清楚，那么可以直接在Google上搜题目，CSDN，博客里会出来各种大神的中文附图讲解，更方便理解。但如果一道题，你研究了一个小时还没完全领悟答案的思路（对于新手这很正常，不慌），可以先把这题暂时标注在你的记录上，过几天再回来看，不用浪费时间死磕。
+
+注意，看答案的目的不是为了让这题混个pass，而是要理解答案中的思路，并逐渐积累形成自己的思维体系。就好比课本里的例题答案，是帮助你更好地去理解基本理论知识的运用方法，课后习题的答案，是为了方便你在做题中自我校正提升。如果你看答案只是稀里糊涂抄上去混个pass，那就没什么意义了。虽然我们是咸鱼，但并不一定要做渣，而是要做一条对自己负责任的咸鱼。
+
+所以，不要为抄答案而羞愧，有成长的抄答案，是一种高效学习的方式。
+
+
+注意代码风格的养成：
+
+这是很多新手会忽视，也不容易掌握的点。
+
+大多数时候我们仅仅满足于LC测试通过。但是在面试中，代码风格会直接暴露出你的实际项目经验。虽然面试更关注的是算法本身，但是如果你能写的一手正确而又整洁的代码，那绝对是加分项。我听过周围很多朋友抱怨新人同事写的便便一般的代码，可见做一个代码不整洁的人，会多么令人一言难尽。
+
+但大部分人的整洁代码，是被大公司里严格的CR训练出来的。对于初学者怎么办呢？
+
+首先，我们在学习变成语言的时候，就可以同时读一读这一语言的官方代码规范，虽然不可能每条都记住，但看几遍多多少少有印象，自己写到相关内容的时候，自然会想起来一些。
+
+其次，很多IDE都自带Lint功能，平时字节写project的时候，按照lint要求把warning都修了，基本也就差不多了。自己总结的标准答案，也可以复制粘贴进去看看有没有什么问题。
+
+最后，参考网上答案的时候要小心，很多人的答案看起来很短很酷，但是在现实中却是很糟的代码风格，或者是隐形增加了时空复杂度，所以需要有选择的汲取。一旦形成自己的代码模板，就坚持下去。
+
+
+反复训练：
+
+很多同学会说几百题刷了一两遍，但似乎依旧没有什么印象。
+
+但是，作为一条咸鱼，你刷了一两遍就把那么多题吃透了，这个，题它不要面子的吗？它们也是花了七八年才增长到上千道的，被你两刷就搞定了颜面何在？
+想想当年复习托福，GRE，那些单词你背两遍就都记住了吗？况且算法题比单词复杂多了吧。
+
+我们不是神，并且同学们大多都是二十多岁的中老年人，不应该太苛求自己的记忆力，刷一两遍题肯定是要忘的，这一点不要惊慌。
+
+我等学弱虽然脑子慢一些，记忆力差一些，但是多来几轮还是能补上的。而且这里的反复训练中的很多轮是在回顾思路，不是反复重写，所以一道题几分钟就能过一遍，并不是那么费时间。
+
+总之，如果一道题你刷了两三遍以下还没记住，那说明你是正常人，不要灰心，不要怀疑，再来几遍就好。
+
+
+详细的笔记：
+
+很多同学每道题写完就算了，不总结也不记录。
+
+刚才说到需要反复训练，但刷一遍题也挺费脑细胞和卡路里的，难道不应该留下点什么吗？你的大脑也许确实带不走一丝云彩，但可以试图留下点来过的痕迹。
+
+特别是找到并形成一道题的标准答案后，在笔记上写下主要思路和要点，对于日后复习有神奇的作用。
+
+另外，一个好的笔记体系，能够帮你构建一个完整的知识体系，养成这个习惯，会有意想不到的效果。
+
+其次，很多人同学觉得刷题像考托福GRE申请学校一样，只是一次性的投入。但实际上，目前互联网程序员平均在一家公司的在职时间还不到3年（包括你自己跳槽以及公司逼你跳槽），这意味着在你职业生涯的前十年，大概需要找三四次工作。在北美的就业体系内，很多人最终也不会走向管理岗位（一言难尽。。。），所以即便你有五到十年工作经验，只要你面试的岗位还是一个Individual Contributor，在面试当中很大可能还是逃不过算法题。
+
+不过面试算法题的大致类型和范围相对比较固定，比如之前七八年虽然LC题目从100增长到1600+，但是主要知识点还是那么多，只是题目变难了，要求变高了。因此你现在总结的笔记，在接下来十年内，都是有用的，而且会被用很多次。
+
+所以一份详细的笔记，不仅对你这次找工作有益，对你未来很多年都有用。
+
+
+提升讲题能力：
+
+很多同学面试题在LC上刷得很熟练很顺利，但是在面试白板/文档上却写不完讲不利索。
+
+不幸的是，面试中的表达是一个很重要的环节，直接影响面试官对你的判断。特别是疫情以后基本都是线上面试，比现场面试更难用手比划，所以相比于仅仅刷题，一定要着重提高对自己讲题能力的训练。虽然你不可能总是找别人帮你mock interview，但在自己平时在做题之后，对着小黄鸭自言自语，复述解题思路是非常重要的。
+
+除了说，学会在共享文档里画图举例子，走case，对于把问题讲清楚有着极其美妙的效果。
+
+能不能把题讲明白和能不能把题做出来同等重要。
+
+
+任务分配管理：
+
+作为一个学弱，看到两三百道题的任务量，大约是颤抖并退缩的。特别是体会过那种刷过一两遍，脑海中却依然没有半点痕迹的感觉的人。
+但是我们可以把这些学习任务，细化出来，制定成相对具体的学习计划，分配到每周甚至每天。
+每完成一个任务点之后，都应该及时进行标注并可以对自己进行小小的鼓励和奖励。
+
+这也是自我管理的技能，很多人在职场上工作过一些年可能都没有意识到，虽然总觉得老板安排的任务似乎都完成了，但其实在老板眼中你可能是个做事没有条理没有计划让领导不完全放心的员工。
+
+其实如果你养成了合理安排工作计划，并按计划执行方案的习惯，这在实际工作中将是一个加分项。不管是老板还是同事，都希望自己的组员是个有条理的人。因为在公司里，良好的执行力是实现各种炫酷idea的必要条件，而合理的任务计划和进度管理又是团队执行力的基础。
+
+另外，能够管理好自己也是未来能够管理好别人的重要前提。
+
+在后面的章节里，作者会分享一些自己具体的刷题计划日志，供参考。
+
+
+
+
+“废话”2：基本的学习过程（是否需要培训课程）？
+
+在全民转行敲代码风行了这么多年的今天，网上各类求职辅导课程自然是。。。和南湾的乌鸦一样多。
+
+对于有一定学习能力的人来说，根据网上免费的信息，自己刷题是完全没有问题的。
+当然对于零基础的人，选一些合适的课程，站在前任的肩膀上，会节省很多时间，避免一些坑（当然前提是你选的课程它自己不是个坑）。
+所以这个问题没有最优答案，需要根据自己的情况权衡选择。
+
+胖头龙因为转专业，不小心上过不少主流、非主流的课程（因为自己太弱，给机构送钱送到钱包哭了），掉过坑也有过收获，所以多多少少有一些自己的心得体会。
+当然我也不会对具体机构和课程给出评价，免生是非。
+
+不过从方法论出发，站在求学者的角度，探讨一下什么是一门好课，还是可以的。
+
+对于我个人而言，选择短期培训课程，是希望对于某些需要训练才能提升的问题（算法、系统设计、面向对象设计、基础知识、技术面试套路、行为类问题、项目实战等），能获取整套系统性解决方案，并且这个方案是能够让我在课下时间重复练习以达到持续提升的目的。
+
+
+针对某一类具体问题，一个“好”的，系统性的解决方案应该包括以下几个要点：
+
+【要点-1】： 准备适当的学习材料（武功秘籍）
+【要点-2】： 给出原理性解决问题的方法论 （内功心法）
+【要点-3】： 给出针对各个具体问题的系统性解决方案/模板 （剑法招式）
+【要点-4】： 系统性地指出难点和要点，以及需要避免的易错点和误区 （命门要害）
+【要点-5】： 通过具体实例展示如何通过套路解决问题，启发思路，训练思维方式 （演示指导）
+【要点-6】： 能够独立反复训练并验证，逐渐提升自己对套路的掌握，对内在原理的领悟，得到相应技能的持续进步（勤学苦练）
+
+其中【要点1~5】是我们希望从课程中获得的，【要点-6】除了要求课程的具有可重复训练，主要靠自己努力。
+
+其实仔细想想，会发现这些要点不仅仅是我们对课程的诉求，也可以是我们自学刷题的整体思路。因此即便我们完全自己学习，也可以按照这些内容进行准备。
+
+
+以解决算法题面试这个目标为例，稍微展开一下这些要点：
+
+（1） 准备适当的学习材料（武功秘籍）
+如何从海量的信息中提取恰到好处的内容，也是一门技术。
+
+有些课程大而全，会提供很多详细的内容，当然从学习的角度而言，学了并没有坏处。只是面试基本考不到，如果你时间紧，那么就是浪费时间。
+
+有些机构比较懒，连基本材料都懒得给你准备，丢给你一个网站，或者让你自己google。当然他们会说这是培养你自主学习的能力，但是你买不买账，全看自己判断。
+
+不过好在对于算法题而言，目前的学习资源还是比较明确的。
+
+<1> 所选刷题语言的入门材料（大部分人都是 Java 或 Python），不管选哪个语言，常用数据结构的增删查改操作要熟练，基本逻辑、类，要会写，代码风格、规范要掌握。
+<2> 十几种常见算法的基本原理和思路。
+<3> 题库，一般是 Leetcode 为主，可以偶尔辅助 LintCode。题目范围主要是总表前两三百道高频，按公司分类的高频，和网上的各种面经。
+<4> 解题答案，课程应该提供标准答案，自学的话自己总结。
+<5> 面试技巧方面的内容和经验。这个对新人来说并不容易获取，多看看帖子，找过来人mock一下效果会比较好。
+
+（2） 给出原理性解决问题的方法论 （内功心法）
+解决算法题的核心思维方式，破解问题的思考步骤，优化取舍的基本判断依据。
+一般来说自己领悟到这些需要大量时间的训练，另外大部分机构的课程在这方面做得也一般。他们更多地是讲解每题的具体解法（毕竟这样比较容易），能做到醍醐灌顶，融会贯通的，毕竟只是少数。
+
+（3）给出针对各个具体问题的系统性解决方案/模板 （剑法招式）
+针对题型分类准备相应的模板和一般思维流程，对一些更具体的子问题做一些准备和探讨。
+这一点，通过自己钻研也是可以总结出不错的模板的，当然大部分课程也都能做到。
+
+（4）系统性地指出难点和要点，以及需要避免的易错点和误区 （命门要害）
+一些题目的易错点和需要小心处理的点，面试中容易犯错的误区，以及与面试官的沟通要点。
+除了熟练做题之外，清楚地讲题也是重点。
+
+（5）通过具体实例展示如何通过套路解决问题，启发思路，训练思维方式 （演示指导）
+老师演示指导面对一道题，如何提问明确面试官需求，如何破题，该往哪个方向思考，然后如何套用模板把问题解决。
+
+教会一个人思考是很难的，所以很多课程更多的局限于知识的传授，而不是启发思考。
+另外少部分课程“觉得”他们做到了启发思考，但其实仅限于老师不断的说“我在教你思考”，却没有实际效果。
+
+所以市面上真正能做到“启发思考，传授思维方式”的好课，目前屈指可数。
+
+（6）能够独立反复训练并验证，逐渐提升自己对套路的掌握，对内在原理的领悟，得到相应技能的持续进步（勤学苦练）
+这个比较直观，以上面总结出的方法，练吧。
+
+
+当然具体训练的时候，也需要分主次，分轻重。
+这里刷几百题是有质量区别的，不是说均匀的每题过一两遍，而是按照优先级高低分主次。
+
+
+题目优先级分类
+
+一般来说，在我的个人笔记里，把题目分为四个优先级：
+
+<1> 必背，大约20~30道，都是各类型题目的典型模板题，基本需要刷十几遍，做到迷迷糊糊半昏迷状态也能熟练默写的肌肉记忆状态。
+
+<2> 核心，大约100~150道，主要是各种高频题和经典题，基本在5~8遍以上，需要做到最优解，medium难度10分钟以内，hard难度15分钟以内，无错一遍过，同时要能解释清楚思路。另外有多重解法的也要掌握，知道不同解法间的优缺点和trade off原因。
+
+<3> 重点，大约200~300道，核心题之外的高频题，基本在5遍左右。这样遇到原题或者类似题的时候，基本思路、逻辑不会错。能不能临场完全bug free要看基本功和运气。
+
+<4> 普通，上述题之外所有你刷过的题。基本上做过一两遍，有个思路，临场遇见了不会慌。
+
+总体而言，在分类学习入门之后，300~400的题量（也就是优先级重点及以上）差不多是可以找工作的（当然有大佬告诉你100道也能找到那也是真的，不过那可是大佬）。
+
+
+刷题力度分类
+
+如何在短时间内刷/过这么多遍也是有技巧的，并不是每次都要手写一遍，并不是每道题都要死缠烂打不会做不罢休，适当的迂回转进，提高整体效率才是目的。
+
+下面是个人对这些基本操作（刷题力度）的定义，比如刚开始刷题的时候初刷、精刷比较多，中期过题、复刷比较多，最后阶段过题和模拟比较多。
+
+具体的分配示例，在后面计划日程的章节有所分享。
+
+初刷：
+新手期遇到新题，如果短时间内（五分钟）没有思路没关系，不要死缠烂打，早点看答案。
+找到最优的答案并尽力去理解，用自己的面试语言和规范的代码风格进行“抄写”，不完全懂也没关系，标注一下，以后再看。
+每题时长控制在半小时之内。
+
+精刷：
+针对初刷过还未充分理解的题。
+尽量全面理解答案的要义，并且至少在能自己“默写”出来，并调试通过。
+将解题思路和形成的标准答案加入到笔记当中。
+如果实在不能完全领悟，需要在笔记中用显著符号标注该题，写下困惑的地方，过一段时间再试试看。
+每题时长控制在一小时之内。
+
+过题：
+按照笔记的标签（比如按分类，或者按优先级）大量复习题目。
+针对做过的题进行复习，如果对这一题还有映象，则在大脑中过一遍解题思路及实现中的细节要点。
+如不记得，则进行主动思考寻求解法，之后对比之前的答案和笔记，看是否正确。
+如果不正确则需要强化思考并记忆，不需要写题。
+每题时长控制在5-10分钟内。
+
+复刷：
+针对做过的题进行复习。好
+自言自语clarify题意，讲请楚自己的思路，写题，检查，跑case，争取bug free一遍过。
+只有参考笔记和标准答案复盘自己的错误和不足。
+每题时长控制在20分钟内。
+
+模拟：
+抽取一道新题，看能不能做到复刷中的效果目标。
+把题目记入笔记。
+每题时长控制在30分钟内。
+
+
+回到话题本身，如果你决定准选择一门课，但你在上完课前，并不知道这门课/机构靠不靠谱，怎么尽量避免掉坑呢？
+
+（1）研究一下课程表，至少知道大概要说什么内容，然后看这些内容是否满足我们说的这些要点，另外从课程内容和价格也可以了解性价比，不同课程间可以比一比。
+（2）上试听课，和主讲老师聊一聊（和老师聊，不是客服，客服只负责营销和教务），感觉一下靠不靠谱。不过大部分机构的试听课都一半的篇幅是营销，另外一半大概能透露一些这个老师的讲课风格，所以可以稍微感受一下。
+（3）最可靠的方式是找到你周围上过这些课的同学、朋友，聊一下看看他们有没有通过这些课找到工作，或者细聊一下课程内容和上课方式，看能不能达到你的要求。
+（4）网上、论坛上明显有差评和争议的课程需要谨慎。另外，满屏彩虹屁的营销文章基本不用看，很多文章作者都是国内写手，连班加罗尔在美国还是印度都弄不清。
+（5）不过核心目的还是学习知识，真上当了除了尽快解决纠纷，还需要尽量调整心态，专注于找工作。
+
+
+最重要的，不管报不报班，还是得靠自身努力，题还是得自己刷；可以花钱买来武功秘籍提升效率，但是最终的汗水和收获，都属于你自己。
+
+
+“废话”3：需要刷到什么程度？
+
+在讨论详细的学习计划前，先定义一下学习目标是什么，或者说期望的学习效果。
+
+对于算法题，作者拍了一下肚子，装X地分成了四层境界（仅代表个人意见及恶趣味）：
+
+第一层境界：昨夜西风凋碧树，独上高楼，望尽天涯路。 （手中有题）
+（一只学弱从坐标0点出发，100小时左右可以达到的状态）
+
+总题量 <100 。
+能认出旧题，识别出考点并且记得大致的思路，
+在不限时间，不限提交次数的情况下，一般也能勉强完成代码。
+对新题基本上无能为力。
+
+第二层境界：谁家玉笛暗飞声，散入春风满洛城。（心中有题）
+（200 ~ 300小时）
+
+总题量 200+。
+对算法模板、数据结构形成初步的认识，偶尔也能产生醍醐灌顶、幡然感悟的快乐。
+对于旧题有较深的映象，有完整的解题思路，能在不看答案的情况下实现代码，基本上能在两三次提交内通过。
+对于新题，大约能判断出题目的类型和解题的方向，但是缺乏对细节的实现能力，有时写的出，有时写不出。
+
+第三层境界：衣带渐宽终不悔，为伊消得人憔悴。（人题合一 ）
+（500 ~ 1000小时）
+
+
+
+
+第三章 刷题方法
+
+基本思路
+
+作为小白刚入门的时候，第一反应以为所谓刷500题就是把 LeetCode 上面前500题都做一遍；再后来有些经验了意识到刷一遍是不够的，基本做了就忘记了，所以需要刷5遍，也就是500 x 5的由来。
+
+这样也对，也不对。
+
+对于大部分资质平均水平的同学而言，刷题确实需要反复训练领悟，但是反复训练不代表死板的暴力重复。当然，暴力重复确实会有作用，但是有系统、有方法的学习，一般来说会更有效率。
+
+就像背单词一样，每个单词花5分钟读300遍未必是最好办法，间隔多天的反复学习反而效果会更好，因为我们需要尊重大脑的工作方式和记忆方式。
+
+所以坐着不但强调刷题要分类，分重点，同时也要分阶段使用不同的方法，实现螺旋形上升的学习过程。
+
+简单的说，就是新手状态只需要囫囵吞枣，不求甚解；稍微有些经验之后再深入思考，恍然大悟；重点题目都基本理解之后再扩展范围，反复训练；最后在不断的、轻重结合的反复训练中实现融会贯通，能做能说。
+
+也就是相比于简单粗暴的依次刷题，循序渐进的循环刷题效率可能更高。
+
+以下图为例，就是越核心的题目重复的次数越多，掌握的程度越深，熟练度也越高。
+
+
+
+
+从刷题频次上来看，更接近于 30 * 10 + 100 * 8 + 300 * 5 。
+
+这样不仅学习效果更好，对于面试准备也更友善。
+因为即便你只处于第二层境界的状态，也已经拥有了相对完整的知识体系，可以应付一些要求不那么高的面试。
+
+
+
+
+刷题模式
+
+刚才提到轻重结合就是指刷题力度不同，这个概念在序言里面已经提到过，这里再重复一下（稍作修改）不同刷题模式：
+
+初刷：
+新手期遇到新题，如果短时间内（五分钟）没有思路没关系，不要死缠烂打，早点看答案。
+找到最优的答案并尽力去理解，用自己的面试语言和规范的代码风格进行“抄写”，不完全懂也没关系，标注一下，以后再看。
+每题时长控制在半小时之内。
+
+精刷：
+针对初刷过还未充分理解的题。
+尽量全面理解答案的要义，并且至少在能自己“默写”出来，并调试通过。
+将解题思路和形成的标准答案加入到笔记当中。
+如果实在不能完全领悟，需要在笔记中用显著符号标注该题，写下困惑的地方，过一段时间再试试看。
+每题时长控制在一小时之内。
+
+复刷：
+针对做过的题进行复习。
+自言自语clarify题意，讲请楚自己的思路，写题，检查，跑case，争取bug free一遍过。
+只有参考笔记和标准答案复盘自己的错误和不足。
+每题时长控制在20分钟内。
+
+回顾：
+按照笔记的标签（比如按分类，或者按优先级）大量复习题目。
+针对做过的题进行复习，如果对这一题还有映象，则在大脑中过一遍解题思路及实现中的细节要点。
+如不记得，则进行主动思考寻求解法，之后对比之前的答案和笔记，看是否正确。
+如果不正确则需要强化思考并记忆，不需要写题。
+每题时长控制在5-10分钟内。
+
+讲题：
+在对此题解题思路正确的情况下，尝试在白板上画图并讲解自己的解题思路，看是否能够流畅完成此过程。
+找到一个让自己满意的描述方式，将图表和讲题思路/要点加入到笔记当中。
+
+模拟：
+抽取一道新题，看能不能做到复刷中的效果目标。
+把题目记入笔记。
+每题时长控制在30分钟内。
+
+
+刷题过程
+
+每个人都可以根据自己的情况定制具体计划，这里给一个例子，是一个对于新手相对详细全面的螺旋型学习过程，可以根据自己的状态进行步骤的增减。
+其中必背题大约30道，核心题大约100+，重点题大约200-300道。
+
+（1）基本知识学习
+要刷题首先得学会语言，新手起步一般是 Python 或者 Java。（当然刷题语言用什么这又是个引战无数的问题，没必要展开，因为各有优劣，所以自己爱用啥用啥，反正面试官一般都看得懂。作者自己一开始用的Java后来转用Python，因为一般来说大部分算法题的情况下 Python 会相对短一些，面试的时候省一些时间。）
+
+语言学习需要理解这种语言的基本数据结构（Array, Linked List, Set, Map等等）、逻辑操作（if,else, for, while, continue,break, return 等等），然后再学习一些稍微复杂一些的数据结构（Stack, Queue, Tree, Heap等等），以及一些简单的 OOD 知识，比如关于Class的最基本的概念。
+
+一般来说很多网站都有详细或者简单的教程。建议从简单好玩可互动的入门级教程开始上手，然后再去读相对复杂枯燥的讲解，最后也可以适当做一些入门题，就是Lintcode上Naive标签的题（LeetCode好像没有这个难度），熟悉一下最基本的写代码的感觉。
+
+目标：知道if语句，for循环怎么写，基本数据的增删改查知道怎么处理。
+
+（2）初刷必背+核心
+分类学习各算法分类的基本概念和思路，以初刷模式刷一遍必备+核心题目（30 + 100左右）。
+其中概念和思路要做到基本理解，但是题目一时半会无法完全理解很正常，把题号+题目+参考答案 按照第二章说的方式记在笔记里即可，刷题记录可以标记为深红（尚未理解）。
+
+目标：知道算法大概有哪些门类，题目大概长什么样，都是在问些什么，总结100+题的答案，并收录在笔记里。
+
+（3）精刷必背题
+按分类尝试深入理解每个分类下面的必背题。
+对于核心题可以按照初刷的方式再过一遍，看不懂就跳过。
+
+目标：基本理解了必背题的解题思路。
+
+（4）精刷核心题
+尝试默写出必背题，对核心题使用精刷操作。
+
+目标：能够基本写出必背题的答案，基本理解核心题的解题思路。（第一层境界）
+
+（5）初刷重点题
+按照分类对重点题使用初刷模式。
+每道题自己先思考几分钟，有思路就先自己试一试，没思路就看答案，不管是否成功写对，最后都要找到标准答案。
+
+目标：把重点题过一遍，至少知道前400题长什么样。
+
+（6）复刷必背+核心
+继续熟练默写必背题，并尝试讲题，包括clarify，描述思路，过一些test case。
+尝试自己写出核心题。
+
+目标：能都随手写出必背题；碰到核心题，都能有思路，虽然可能有小问题，但基本都能写出来。（第二层境界）
+
+（7）精刷重点题 + 回顾必背、核心题
+按照高频顺序（不再是分类）精刷重点题，如果觉得比较费时间，就从前往后刷到哪是哪。
+同时回顾（过题）必备题和核心题，做过时间的比较久的重点题也可以放在回顾计划中。回顾时主要关注思路和实现要点、易错点。
+
+目标：对于前300 ~ 400题形成相对完整的知识体系、笔记体系。
+
+（8）复刷必背、核心题 + 回顾重点题
+做到必背、核心题基本都能一次写对，尝试讲题。
+
+目标: 能秒杀核心题。
+
+（9）复刷重点题 + 回顾所有做过的题
+如果重点题能直接做出来（可能只是一小部分），就对照一下之前的答案对比一下小的细节差异，如果五分钟没有思路，或者三十分钟没写对，直接看之前笔记的答案修正问题。
+
+目标：对于重点题，也基本看到就都有思路。
+
+（10）回顾所有做过的题 + 模拟
+按频率或者面经，以模拟的形式尝试还没做过的题。
+包括clarify，解法描述，写题，跑case等等。
+不管有没有做对，都要看答案形成笔记。
+
+目标：对于必背、核心题都可以秒杀并详细讲解；对于重点题可以在没有太大逻辑错误的情况下写对；对于400道以外的题目也做过一些，并且看到大部分新题都至少有思路。（第三层境界）
+
+（10 +）回顾旧题 + 做新题
+进入了一个开放性的成长阶段，面试能用到的理论体系已经完整建立，主流高频题都能搞定。
+通过各种新题磨炼自己的临场技能，补充知识体系中的细节。
+
+目标：前往第四层境界的路上。
+
+
+
+刷题计划表
+
+也可以定制一个自己的刷题计划表（不同于刷题记录表），方便计划和打卡。
+
+一般来说，刷题这样的高脑力活动，一天4~6个小时效率会比较高。
+
+超出的时间做一些知识学习、回顾旧题这样相对较轻松的任务会比较合适。
+
+如果经常无法按时完成，需要及时调整。
+
+注意劳逸结合。大脑和肌肉一样，练多了效率会降低，特别是对于二十多岁的中老年人。
+
+把每天有限的心力及时用在最困难的任务上。
+
+
+
+
+一些重复三遍的小建议：
+
+学不明白不是你的错，是题目确实难
+
+不要和某一题死磕太久
+
+劳逸结合
+
+能讲和能写一样重要；但是在会讲题之前，得先会写；会写之前，得先理解
+
+按照现在的市场价格，学会一题相当于赚 $500，而且是每年
+
+过程是艰难的，结果是美好的
+
+
+第四章 程序基础
+
+
+从本章开始，将按分类分享题目列表和优先级。
+优先级用不同颜色标注：必背：紫色；核心：蓝色；重点：绿色；普通：黄色。
+另外对于必背和核心题，题目本身的难度级别反而不重要（不管简单还是难你都得会），所有就不标注了。
+
+至于题目的答案，因为作者自己的题解未必是最好的，还希望大家在网上学习总结出适合自己的模板。
+LeetCode的Solution和discussion以及中文网站的各种博客已经足够查找到需要的所有信息了。
+
+另外也会针对每类问题列出一些比较重要的问题，供大家在自学中有一个大致的方向。
+
+
+
+Python 基本入门的网站（现在基本都用Python3）：
+
+W3schools:
+这个自带iteractive的在线编译器，比较方便。
+https://www.w3schools.com/python/
+
+Tutorialspoint :
+这个也差不多，没有编译器。
+https://www.tutorialspoint.com/python/index.htm
+
+官方文档：
+用来查询API的用法，很实用。
+https://docs.python.org/3/
+
+Google 代码风格规范：
+一开始会看不明白，几十题之后再回来读，然后自觉向规范靠拢。
+https://google.github.io/styleguide/pyguide.html
+
+
+
+基本问题：
+（1）变量，基本数据类型，逻辑运算符号
+（2）控制语句，if else
+（3）循环结构，for, while, continue, break
+（4）基本数据操作，int，float和常用的数学运算，不同数据类型之间的转换
+（5）基本数据结构，理解hashmap，set，tree,  linked list的概念，理解Python 中 string，list，tuple，dict, set，linked list的增删改查
+（6）高级数据结构，Counter, defaultdict, OrderedDict, queue, deque, stack, heap, bisect的概念和在python中的用法
+（7）其他常见方法，sort, enumerate, map, filter, lambda
+（8）函数的使用，参数的传递，引用的传递，递归的基本概念
+（9）基本的面向对象，Class, Object，理解引用，deep copy的概念，通过自定义__lt__,  __gt__, __eq__来控制数据结构的排序。
+
+
+语法入门题目列表：
+因为Leetcode没太多基础的题，所以这个章节基本用的是Lintcode上的Naive。
+这些题主要是帮助熟悉语法，所以没有用特别高的优先级。
+
+Lint-37. Reverse 3-digit Integer
+https://www.lintcode.com/problem ... integer/description
+
+Lint-214. Max of Array
+https://www.lintcode.com/problem/max-of-array/description
+
+Lint-283. Max of 3 Numbers
+https://www.lintcode.com/problem/max-of-3-numbers/description
+
+
+Lint-146. Lower to uppercase II
+https://www.lintcode.com/problem ... case-ii/description
+
+Lint-241. String to Integer
+https://www.lintcode.com/problem/string-to-integer/description
+
+Lint-449. Char to Integer
+https://www.lintcode.com/problem/char-to-integer/description
+
+
+Lint-463. Sort Integers
+https://www.lintcode.com/problem/sort-integers/description
+
+Lint-484. Swap Two Intergers in Array
+https://www.lintcode.com/problem ... n-array/description
+
+Lint-485. Generate ArrayList with Given Size
+https://www.lintcode.com/problem ... en-size/description
+
+
+Lint-225. Find Node in Linked List
+https://www.lintcode.com/problem ... ed-list/description
+
+Lint-466. Count Linked List Nodes
+https://www.lintcode.com/problem ... t-nodes/description
+
+Lint-483. Convert Linked List to Array List
+https://www.lintcode.com/problem ... ay-list/description
+
+
+Lint-454. Rectangle Area
+https://www.lintcode.com/problem/rectangle-area/description
+
+Lint-478. Simple Calculator
+https://www.lintcode.com/problem/simple-calculator/description
+
+Lint-366. Fibonacci
+https://www.lintcode.com/problem/fibonacci/description
+
+Lint-632. Binary Tree Maximum Node
+https://www.lintcode.com/problem ... um-node/description
+
+
+Lint-40. Implement Queue by Two Stacks
+https://www.lintcode.com/problem ... -stacks/description
+
+Lint-492. Implement Queue by Linked List
+https://www.lintcode.com/problem ... ed-list/description
+
+Lint-494. Implement Stack by Two Queues
+https://www.lintcode.com/problem ... -queues/description
+
+Lint-495. Implement Stack
+https://www.lintcode.com/problem/implement-stack/description
+
+
+
+
+第五章 二分法
+
+
+基本问题：
+（1）基本思想？（有序的数据，每次通过判断逻辑排除掉一部分的答案，直到触发终止条件）
+（2）二分法实现模板（可以递归，可以迭代；一般以迭代为主）
+（3）移动两个指针（start与end）的含义？移动条件是什么（筛选掉一部分数据的依据）？循环的截止条件？
+（4）数据中是否有重复数字？对结果有什么影响？
+（5）为什么你选择的模板中使用start < end 或者 start <= end 或者 start + 1 < end 作为终止条件？这样写是如何避免死循环的？不这么写在什么情况下会出现死循环？
+（6）在处理逻辑中，当前结果>, <, = 目标值时分别如何处理？移动指针的依据是什么？
+（7）循环退出后是否需要额外处理？
+（8）如果遇到corner case根本没进主循环，你的代码是否能正常工作？
+（9）为什么Java需要写 mid = start + (end - start) / 2 而 Python可以直接写 mid = (start + end) // 2 ？
+（10）如何理解从基本的朴素二分，到相对复杂的条件二分，到更加抽象的答案二分？（在一个显性有序数组中一次砍掉一部分 -->  在一组有规律的数据上利用判断条件逐步缩小范围  -->  在一个有序的抽象模型里，利用不断的"猜测+检验"逐步逼近最终结果）
+
+
+
+二分法题目列表：
+（必背：紫色；核心：蓝色；重点：绿色；普通：黄色；默认是LeetCode，如果是LintCode会以Lint开头）
+
+
+朴素二分法：
+
+704. Binary Search
+https://leetcode.com/problems/binary-search/
+
+34. Find First and Last Position of Element in Sorted Array
+https://leetcode.com/problems/fi ... nt-in-sorted-array/
+
+702. Search in a Sorted Array of Unknown Size
+https://leetcode.com/problems/se ... ay-of-unknown-size/
+
+153. Find Minimum in Rotated Sorted Array
+https://leetcode.com/problems/fi ... tated-sorted-array/
+
+154. Find Minimum in Rotated Sorted Array II
+https://leetcode.com/problems/fi ... ed-sorted-array-ii/
+
+278. First Bad Version
+https://leetcode.com/problems/first-bad-version/
+
+658. Find K Closest Elements
+https://leetcode.com/problems/find-k-closest-elements/
+
+
+条件二分法：
+
+33. Search in Rotated Sorted Array
+(81. Search in Rotated Sorted Array II， follow up)
+https://leetcode.com/problems/search-in-rotated-sorted-array/
+https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
+
+4. Median of Two Sorted Arrays
+https://leetcode.com/problems/median-of-two-sorted-arrays/
+
+74. Search a 2D Matrix
+https://leetcode.com/problems/search-a-2d-matrix/
+
+162. Find Peak Element
+https://leetcode.com/problems/find-peak-element/
+
+302. Smallest Rectangle Enclosing Black Pixels
+https://leetcode.com/problems/sm ... osing-black-pixels/
+
+852. Peak Index in a Mountain Array
+https://leetcode.com/problems/peak-index-in-a-mountain-array/
+
+
+答案二分法：
+
+875. Koko Eating Bananas
+https://leetcode.com/problems/koko-eating-bananas/
+
+1283. Find the Smallest Divisor Given a Threshold
+https://leetcode.com/problems/fi ... -given-a-threshold/
+
+69. Sqrt(x)
+(Lint-586. Sqrt(x) II, follow up)
+https://leetcode.com/problems/sqrtx/
+https://www.lintcode.com/problem/sqrtx-ii/description
+
+Lint-183. Wood Cut
+https://www.lintcode.com/problem/wood-cut/description
+
+Lint-437. Copy Books
+https://www.lintcode.com/problem/copy-books/description
+
+Lint-438. Copy Books II
+https://www.lintcode.com/problem/copy-books-ii/description
+
+
+
+ 
+
+第六章 多指针
+
+
+
+基本问题：
+（1）多指针是一个非常广泛的概念，并不是一个固定的算法。但基本上是通过一些变量的控制与循环把问题的复杂度控制在一两层for循环之内。可以用在数组、链表、区间、滑动窗口、流、回文串、和差问题等多个场景。（前项和其实并不完全是指针问题，但也归并在这里）。
+（2）Quick Sort和Merge Sort的基本原理与实现，排序的稳定性问题
+（3）Quick Select的实现与复杂度
+（4）同向指针与相向指针的使用场景
+（5）不同场景下循环终止条件？
+（6）两数之和，之差，特定条件下（大小于某值等）的计数问题
+（7）三数或三数以上之和的通用写法（两数之和+搜索）
+（8）数组有没有排序？是否需要排序？
+（9）数组有没有去重？是否需要去重？
+（10）离线数据（内存中，有限长）还是在线数据（无法放入内存，长度未知）？
+（11）链表操作中dummy node与previous node的使用技巧
+（12）链表的中点，判断是否有环，寻找环的交叉点
+
+
+
+
+多指针题目列表：
+（必背：紫色；核心：蓝色；重点：绿色；普通：黄色；默认是LeetCode，如果是LintCode会以Lint开头）
+
+
+
+数组：
+
+912. Sort an Array (Quick Sort and Merge Sort)
+https://leetcode.com/problems/sort-an-array/
+
+75. Sort Colors
+https://leetcode.com/problems/sort-colors/
+
+26. Remove Duplicates from Sorted Array
+https://leetcode.com/problems/re ... -from-sorted-array/
+
+80. Remove Duplicates from Sorted Array II
+https://leetcode.com/problems/re ... om-sorted-array-ii/
+
+88. Merge Sorted Array
+https://leetcode.com/problems/merge-sorted-array/
+
+283. Move Zeroes
+https://leetcode.com/problems/move-zeroes/
+
+215. Kth Largest Element in an Array
+https://leetcode.com/problems/kth-largest-element-in-an-array/
+
+347. Top K Frequent Elements
+https://leetcode.com/problems/top-k-frequent-elements/
+
+349. Intersection of Two Arrays
+https://leetcode.com/problems/intersection-of-two-arrays/
+
+350. Intersection of Two Arrays II
+https://leetcode.com/problems/intersection-of-two-arrays-ii/
+
+845. Longest Mountain in Array
+https://leetcode.com/problems/longest-mountain-in-array/
+
+42. Trapping Rain Water
+https://leetcode.com/problems/trapping-rain-water/
+
+43. Multiply Strings
+https://leetcode.com/problems/multiply-strings/
+
+969. Pancake Sorting
+https://leetcode.com/problems/pancake-sorting/
+
+Lint-31. Partition Array
+https://www.lintcode.com/problem/partition-array/description
+
+Lint-625. Partition Array II
+https://www.lintcode.com/problem/partition-array-ii/description
+
+Lint-143. Sort Color II
+https://www.lintcode.com/problem/sort-colors-ii/description
+
+Lint-461. Kth Smallest Numbers in Unsorted Array
+https://www.lintcode.com/problem ... d-array/description
+
+Lint-544. Top k Largest Numbers
+https://www.lintcode.com/problem ... numbers/description
+
+
+
+
+链表：
+
+21. Merge Two Sorted Lists
+https://leetcode.com/problems/merge-two-sorted-lists/
+
+86. Partition List
+https://leetcode.com/problems/partition-list/
+
+141. Linked List Cycle
+https://leetcode.com/problems/linked-list-cycle/
+
+160. Intersection of Two Linked Lists
+https://leetcode.com/problems/intersection-of-two-linked-lists/
+
+234. Palindrome Linked List
+https://leetcode.com/problems/palindrome-linked-list/
+
+328. Odd Even Linked List
+https://leetcode.com/problems/odd-even-linked-list/
+
+142. Linked List Cycle II
+https://leetcode.com/problems/linked-list-cycle-ii/
+
+287. Find the Duplicate Number
+https://leetcode.com/problems/find-the-duplicate-number/
+
+876. Middle of the Linked List
+https://leetcode.com/problems/middle-of-the-linked-list/
+
+
+
+
+区间：
+
+Lint-391. Number of Airplanes in the Sky
+https://www.lintcode.com/problem ... the-sky/description
+
+56. Merge Intervals
+https://leetcode.com/problems/merge-intervals/
+
+57. Insert Interval
+https://leetcode.com/problems/insert-interval/
+
+252. Meeting Rooms
+https://leetcode.com/problems/meeting-rooms/
+
+253. Meeting Rooms II
+https://leetcode.com/problems/meeting-rooms-ii/
+
+986. Interval List Intersections
+https://leetcode.com/problems/interval-list-intersections/
+
+
+
+回文串：
+
+5. Longest Palindromic Substring
+https://leetcode.com/problems/longest-palindromic-substring/
+
+345. Reverse Vowels of a String
+https://leetcode.com/problems/reverse-vowels-of-a-string/
+
+680. Valid Palindrome II
+https://leetcode.com/problems/valid-palindrome-ii/
+
+125. Valid Palindrome
+https://leetcode.com/problems/valid-palindrome/
+
+
+
+
+滑动窗口：
+
+3. Longest Substring Without Repeating Characters
+https://leetcode.com/problems/lo ... peating-characters/
+
+11. Container With Most Water
+https://leetcode.com/problems/container-with-most-water/
+
+76. Minimum Window Substring
+https://leetcode.com/problems/minimum-window-substring/
+
+209. Minimum Size Subarray Sum
+https://leetcode.com/problems/minimum-size-subarray-sum/
+
+239. Sliding Window Maximum
+https://leetcode.com/problems/sliding-window-maximum/
+
+713. Subarray Product Less Than K
+https://leetcode.com/problems/subarray-product-less-than-k/
+
+395. Longest Substring with At Least K Repeating Characters
+https://leetcode.com/problems/lo ... peating-characters/
+
+480. Sliding Window Median
+https://leetcode.com/problems/sliding-window-median/
+
+567. Permutation in String
+https://leetcode.com/problems/permutation-in-string/
+
+727. Minimum Window Subsequence
+https://leetcode.com/problems/minimum-window-subsequence/
+
+Lint-604. Window Sum
+https://www.lintcode.com/problem/window-sum/description
+
+
+
+流：
+
+295. Find Median from Data Stream
+https://leetcode.com/problems/find-median-from-data-stream/
+
+346. Moving Average from Data Stream
+https://leetcode.com/problems/moving-average-from-data-stream/
+
+352. Data Stream as Disjoint Intervals
+https://leetcode.com/problems/data-stream-as-disjoint-intervals/
+
+703. Kth Largest Element in a Stream
+https://leetcode.com/problems/kth-largest-element-in-a-stream/
+
+
+
+前项和：
+
+53. Maximum Subarray
+https://leetcode.com/problems/maximum-subarray/
+
+238. Product of Array Except Self
+https://leetcode.com/problems/product-of-array-except-self/
+
+303. Range Sum Query - Immutable
+https://leetcode.com/problems/range-sum-query-immutable/
+
+325. Maximum Size Subarray Sum Equals k
+https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/
+
+528. Random Pick with Weight
+https://leetcode.com/problems/random-pick-with-weight/
+
+560. Subarray Sum Equals K
+https://leetcode.com/problems/subarray-sum-equals-k/
+
+
+
+和差问题：
+
+1. Two Sum
+https://leetcode.com/problems/two-sum/
+
+15. 3Sum
+https://leetcode.com/problems/3sum/
+
+18. 4Sum
+https://leetcode.com/problems/4sum/
+
+Lint-382. Triangle Count
+https://www.lintcode.com/problem/triangle-count/description
+
+167. Two Sum II - Input array is sorted
+https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+
+170. Two Sum III - Data structure design
+https://leetcode.com/problems/two-sum-iii-data-structure-design/
+
+653. Two Sum IV - Input is a BST
+https://leetcode.com/problems/two-sum-iv-input-is-a-bst/
+
+1099. Two Sum Less Than K
+https://leetcode.com/problems/two-sum-less-than-k/
+
+259. 3Sum Smaller
+https://leetcode.com/problems/3sum-smaller/
+
+Lint-57. 3Sum Closest
+https://www.lintcode.com/problem/3sum-closest/description
+
+Lint-443. Two Sum - Greater than target
+https://www.lintcode.com/problem ... -target/description
+
+Lint-533. Two Sum - Closet to target
+https://www.lintcode.com/problem ... -target/description
+
+Lint-587. Two Sum - Unique pairs
+https://www.lintcode.com/problem/two-sum-unique-pairs/description
+
+Lint-609. Two Sum - Less than or equals to target
+https://www.lintcode.com/problem ... -target/description
+
+Lint-610. Two Sum - Difference equals to target
+https://www.lintcode.com/problem ... rget/my-submissions
