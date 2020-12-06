@@ -34,9 +34,9 @@ https://github.com/yuan-luo/LeetcodeTop
 一亩三分地高频题 上岸回馈  
 https://www.1point3acres.com/bbs/thread-690957-1-1.html
 1. binary tree 搜索：  
-    i.  DFS: preorder, inorder, postorder; iteration/recursion https://shawnlyu.com/algorithms/tree-traversal-recursively-iteratively-preorder-inorder-postorder/
-    ii. BFS: https://shawnlyu.com/algorithms/intro-to-graph-algorithms-bfs-dfs/
-    ii. Backtracking: https://shawnlyu.com/algorithms/leetcode-for-interviewdfs-bfs-and-backtracking-ii-how-to-backtrack-detailed-explanations-with-examples/
+    i.  DFS: preorder, inorder, postorder; iteration/recursion https://shawnlyu.com/algorithms/tree-traversal-recursively-iteratively-preorder-inorder-postorder/  
+    ii. BFS: https://shawnlyu.com/algorithms/intro-to-graph-algorithms-bfs-dfs/  
+    iii. Backtracking: https://shawnlyu.com/algorithms/leetcode-for-interviewdfs-bfs-and-backtracking-ii-how-to-backtrack-detailed-explanations-with-examples/  
 2. Sortings: https://shawnlyu.com/algorithms/visualized-python-intro-to-sorting-algorithms-selections-sort-insertion-sort-bucket-sort-bubble-sort-mergesort-quicksort-heapsort-and-their-complexity-analysis/
 3. Topological sort: https://shawnlyu.com/algorithms/graph-algorithm-topological-sort/
 4. TopK problem: https://shawnlyu.com/algorithms/top-k-problem-sort-heap-and-quickselect/
