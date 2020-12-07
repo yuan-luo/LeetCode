@@ -19,6 +19,33 @@ https://leetcode-cn.com/problems/longest-palindromic-substring/
 返回值应该为：j - i + 1 - 2
 2. start和end的值。特别是start值的确定。这个表达式是综合了偶数和奇数两种情况计算出来的结果。
 
+
+中心扩散法 写法一：
+
+class Solution {
+public:
+    string longestPalindrome(string s) {
+        if (s.size() < 2) return s;
+        int n = s.size(), maxLen = 0, start = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            searchPalindrome(s, i, i, start, maxLen);
+            searchPalindrome(s, i, i + 1, start, maxLen);
+        }
+        return s.substr(start, maxLen);
+    }
+    void searchPalindrome(string s, int left, int right, int& start, int& maxLen) {
+        while (left >= 0 && right < s.size() && s[left] == s[right]) {
+            --left; ++right;
+        }
+        if (maxLen < (right - left + 1) - 2) {
+            start = left + 1;
+            maxLen = (right - left + 1) - 2;
+        }
+    }
+};
+
+中心扩散法 写法二：
+
 class Solution {
 public:
     string longestPalindrome(string s) {
