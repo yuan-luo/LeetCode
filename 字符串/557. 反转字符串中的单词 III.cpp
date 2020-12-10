@@ -8,7 +8,26 @@ https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/
 
 输入："Let's take LeetCode contest"
 输出："s'teL ekat edoCteeL tsetnoc"
- 
+
+解法一，利用STL
+
+class Solution {
+public:
+    string reverseWords(string s) {
+         auto start = s.begin();
+         for (auto it = s.begin(); it != s.end(); ++it) {
+             if (*it == ' ') {
+                 reverse(start, it);
+                 start = it + 1;
+             }
+         }
+         reverse(start, s.end());
+         return s;
+    }
+};
+
+解法二，常规方法
+
 class Solution {
 public:
     string reverseWords(string s) {
