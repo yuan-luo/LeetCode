@@ -13,10 +13,10 @@ https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
 
 题解：
 
-链表A走了：a + c
-链表B走了：b + c
 当A走到头时候再从B开始走起，
 当B走到头时候再从A开始走起。
+链表A走了：a + c
+链表B走了：b + c
 这样两者一定会在c的开始处相遇，因为他们都走了a + b + c的距离。
 
 class Solution {
