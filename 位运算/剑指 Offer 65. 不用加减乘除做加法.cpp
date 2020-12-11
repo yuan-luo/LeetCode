@@ -4,9 +4,9 @@ class Solution {
 public:
     int add(int a, int b) {
         while (b != 0) {
-            int c = (unsigned int) (a & b) << 1; // c是进位
+            int carry = (unsigned int) (a & b) << 1; // carry是进位
             a = a ^ b; // 非进位和
-            b = c; 
+            b = carry; 
         }
         return a;
     }
