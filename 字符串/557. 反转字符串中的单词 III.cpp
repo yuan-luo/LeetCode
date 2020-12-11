@@ -9,7 +9,7 @@ https://leetcode-cn.com/problems/reverse-words-in-a-string-iii/
 输入："Let's take LeetCode contest"
 输出："s'teL ekat edoCteeL tsetnoc"
 
-解法一，利用STL
+解法一，利用STL iterator直接反转每个单词。
 
 class Solution {
 public:
