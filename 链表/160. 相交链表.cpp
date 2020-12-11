@@ -11,20 +11,22 @@ https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
 可假定整个链表结构中没有循环。
 程序尽量满足 O(n) 时间复杂度，且仅用 O(1) 内存。
 
-==============================================
+题解：
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+链表A走了：a + c
+链表B走了：b + c
+当A走到头时候再从B开始走起，
+当B走到头时候再从A开始走起。
+这样两者一定会在c的开始处相遇，因为他们都走了a + b + c的距离。
+
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        
+        ListNode *a = headA, *b = headB;
+        while (a != b) {
+            a = a == nullptr ? headB : a->next;
+            b = b == nullptr ? headA : b->next;
+        }
+        return a;
     }
 };
-
