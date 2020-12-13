@@ -11,8 +11,6 @@ i和j分别是两个数组的游标。 在处理结果的循环里面，当遇�
 说明j前面的数字都和nums[i]满足翻转对，所以++j，一轮循环下来满足的结果就是j - (mid + 1)。
 下一轮循环j可以不用再初始化成mid + 1，可以节省时间。
 
-最好
-
 class Solution {
 public:
     int reversePairs(vector<int>& nums) {
