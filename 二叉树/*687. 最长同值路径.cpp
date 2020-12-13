@@ -15,6 +15,10 @@
 输出:
 2
 
+思路:
+
+注意这道题和124题 二叉树中的最大路径和 类似。都是选择左子树和右子树的gain做比较。
+  
 class Solution {
 public:
     int longestUnivaluePath(TreeNode* root) {
