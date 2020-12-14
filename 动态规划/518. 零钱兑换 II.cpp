@@ -34,7 +34,7 @@ class Solution {
 public:
     int change(int amount, vector<int>& coins) {
         int n = coins.size();
-        // dp[i][j]: i个硬币组成j金额
+        // dp[i][j]: 用i种硬币组成金额为j的数多少种方法
         vector<vector<int>> dp(n + 1, vector<int>(amount + 1, 0));
         for (int i = 0; i <= n; ++i) dp[i][0] = 1;
         for (int i = 1; i <= n; ++i) {
