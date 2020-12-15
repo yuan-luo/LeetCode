@@ -19,7 +19,26 @@ nums1 中数字 x 的下一个更大元素是指 x 在 nums2 中对应位
 解释:
     对于 num1 中的数字 2 ，第二个数组中的下一个较大数字是 3 。
     对于 num1 中的数字 4 ，第二个数组中没有下一个更大的数字，因此输出 -1 。
+    
+写法一：推荐
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& findNums, vector<int>& nums) {
+        stack<int> st;
+        unordered_map<int, int> m; // 每个数字 -> 右边第一个更大元素
+        for (int n : nums) {
+            while (st.size() && st.top() < n) {
+                m[st.top()] = n; st.pop();
+            }
+            st.push(n);
+        }
+        vector<int> ans;
+        for (int n : findNums) ans.push_back(m.count(n) ? m[n] : -1);
+        return ans;
+    }
+};
 
+写法二：
 class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
