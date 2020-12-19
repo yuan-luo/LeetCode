@@ -21,7 +21,7 @@ https://www.cnblogs.com/grandyang/p/4340948.html
 说明此时少了一个T中的字母，那么 cnt 值就要减1了，然后移动左边界 left。
 你可能会疑问，对于不在T串中的字母的映射值也这么加呀减呀的，真的没事吗？
 其实没啥事，因为对于不在T串中的字母，减1后，变-1，cnt 不会增加，之后收缩左边界的时候，
-映射值加1后为0，cnt 也不会减少，所以并没有什么影响啦，
+映射值加1后为0，cnt 也不会减少，所以并没有什么影响啦。
 下面是具体的步骤啦：
 
 - 先扫描一遍T，把对应的字符及其出现的次数存到 HashMap 中。
@@ -54,13 +54,9 @@ public:
 
 这道题和第3题有相似的地方。
 https://github.com/yuan-luo/LeetCode/blob/master/%E5%AD%97%E7%AC%A6%E4%B8%B2/003.%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.cpp
+第3题的map的value是保存字符的下标。而这道题value是保存字符出现的次数。如果字符出现一次就减1，如过value大于等于0则说明hit了字符串 t 中的字符。
+当left右移时，每次把字符加1，如果大于0说明hit了字符串t中的字符。因为如果不在t中的话，value会等于0，因为之前扫描到的时候减了1。
 
 3. 无重复字符的最长子串
 https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
-
-
-
-
-
-
