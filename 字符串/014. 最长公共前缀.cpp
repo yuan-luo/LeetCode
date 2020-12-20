@@ -12,7 +12,6 @@ public:
     string longestCommonPrefix(vector<string>& strs) {
         if (strs.size() == 0) return "";
         string res;
-        char c;
         for (int j = 0; j < strs[0].size(); ++j) { // strs[0]的第j个字符
             char c = strs[0][j];
             for (int i = 1; i < strs.size(); ++i) { //strs[i]个字符串
