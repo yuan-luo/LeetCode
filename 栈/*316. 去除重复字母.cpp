@@ -24,6 +24,8 @@ we check if we can still see this result.back() in the latter substring.
 if we can still find it later, we can pop it from the back and add it back later
 4. add current char to the back of the result string
 5. set visited[current char]=true
+    
+如果当前char比栈顶char小，并且从dict得知后面的string里面这个char还存在，那么把栈顶出栈，并且unset它的visit值，然后把当前char入栈。
 
 class Solution {
 public:
