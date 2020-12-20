@@ -18,15 +18,12 @@
 
 对于本题而言，当 needle 是空字符串时我们应当返回 0 。这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。
 
-=======================
-
 class Solution {
 public:
     int strStr(string haystack, string needle) {
         if (needle.empty()) return 0;
         int m = haystack.size();
         int n = needle.size();
-        if (m < n) return -1;
         
         for (int i = 0; i <= m - n; ++i) {
             int j = 0;
