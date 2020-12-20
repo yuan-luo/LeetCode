@@ -13,13 +13,36 @@
 输入：s = "cbacdcbc"
 输出："acdb"
 
-=================================================
+题解：
+
+1. we save the occurance of each char in s by using vector<int> dict(256,0)
+2. we make a result string
+3. traverse the string again, each time we see a char, we decrease the occurance in the dict, 
+and check if this char has been in the result or not, 
+if so, skip the char while the result.back() is larger than current char, 
+we check if we can still see this result.back() in the latter substring. 
+if we can still find it later, we can pop it from the back and add it back later
+4. add current char to the back of the result string
+5. set visited[current char]=true
 
 class Solution {
 public:
     string removeDuplicateLetters(string s) {
-
+        vector<int> dict(256, 0); // freq
+        vector<bool> visited(256, false); // visited
+        string ans = "";
+        for (char c : s) ++dict[c];
+        for (int i = 0; i < s.size(); ++i) {
+            --dict[s[i]];
+            if (visited[s[i]]) continue;
+            while (!ans.empty() && s[i] < ans.back() && dict[ans.back()] > 0) {
+                visited[ans.back()] = false;
+                ans.pop_back();
+            }
+            ans.push_back(s[i]);
+            visited[s[i]] = true;
+        }
+        return ans;
     }
 };
-
 
