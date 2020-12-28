@@ -19,6 +19,13 @@ https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/
 解释：在第 2 天 (股票价格 = 2) 的时候买入，在第 3 天 (股票价格 = 6) 的时候卖出, 这笔交易所能获得利润 = 6-2 = 4 。
      随后，在第 5 天 (股票价格 = 0) 的时候买入，在第 6 天 (股票价格 = 3) 的时候卖出, 这笔交易所能获得利润 = 3-0 = 3 。
 
+思路：
+
+dp[i]的值有两种可能：
+第一，第i天完成第k笔买和卖，第k笔收益为0。
+第二，第i天完成第k笔的卖出，之前的一些天完成其他交易。满足这种要求的所有情况，都能和第i-1天完成第k笔交易的情况建立一对一的关系，
+只是第k笔交易的卖出价格由prices[i - 1]变为了prices[i]。所以dp[i] = dp[i - 1] - prices[i - 1] + prices[i]。
+
 class Solution {
 public:
     int maxProfit(int k, vector<int>& prices) {
