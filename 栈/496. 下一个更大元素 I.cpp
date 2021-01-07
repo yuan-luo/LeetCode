@@ -19,8 +19,34 @@ nums1 中数字 x 的下一个更大元素是指 x 在 nums2 中对应位
 解释:
     对于 num1 中的数字 2 ，第二个数组中的下一个较大数字是 3 。
     对于 num1 中的数字 4 ，第二个数组中没有下一个更大的数字，因此输出 -1 。
+
+
+题解：
+
+建造一个单调递减栈，如果是矮子就出列，反正也被挡着了。然后当前数字的下一个最大元素就是栈顶元素。
+然后把这个元素入栈接受判定。
+
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        unordered_map<int, int> m; // val -> next bigger val
+        stack<int> st;
+        vector<int> ans(nums1.size());
+        for (int i = nums2.size() - 1; i >= 0; --i) {
+            while (!st.empty() && nums2[i] >= st.top()) {
+                st.pop();
+            }
+            m[nums2[i]] = st.empty() ? -1 : st.top();
+            st.push(nums2[i]);
+        }
+        for (int i = 0; i < nums1.size(); ++i) {
+            ans[i] = m[nums1[i]];
+        }
+        return ans;
+    }
+};
     
-写法一：推荐
+写法二：
 class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& findNums, vector<int>& nums) {
@@ -38,7 +64,7 @@ public:
     }
 };
 
-写法二：
+写法三：
 class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
