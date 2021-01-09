@@ -25,6 +25,10 @@
 输出: 0 
 解释: 在这个情况下, 没有交易完成, 所以最大利润为 0。
 
+思路：
+
+forward是指左边的最大利润，backward是指右边的最大利润。
+
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
