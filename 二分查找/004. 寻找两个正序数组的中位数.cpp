@@ -1,6 +1,7 @@
 4. 寻找两个正序数组的中位数
 
-给定两个大小为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的中位数。
+给定两个大小为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。
+请你找出并返回这两个正序数组的中位数。
 
 进阶：你能设计一个时间复杂度为 O(log (m+n)) 的算法解决此问题吗？
 
@@ -10,13 +11,10 @@ public:
         if (nums1.size() > nums2.size()) {
             return findMedianSortedArrays(nums2, nums1);
         }
-        
         int m = nums1.size();
         int n = nums2.size();
-
         // 分割线左边的所有元素需要满足的个数(m + n + 1)/2
         int totalLeft = (m + n + 1) / 2;
-
         // 在num1的区间[0, m]里面查找适当的分割线
         int left = 0;
         int right = m;
@@ -30,7 +28,6 @@ public:
                 right = i;
             }
         }
-
         int i = left;
         int j = totalLeft - i;
         int nums1LeftMax = (i <= 0) ? INT_MIN : nums1[i - 1];
@@ -40,7 +37,6 @@ public:
      
         if ((m + n) % 2 == 1)
             return max(nums1LeftMax, nums2LeftMax);
-
         else
             return (double) (max(nums1LeftMax, nums2LeftMax) + min(nums1RightMin, nums2RightMin)) * 0.5;
     }
