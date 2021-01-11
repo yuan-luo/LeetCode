@@ -27,7 +27,8 @@
 
 思路：
 
-forward是指左边的最大利润，backward是指右边的最大利润。
+forward是指左边的最大利润，就是以前买入最晚到今天卖出一次的最大利润。
+backward是指右边的最大利润，就是最早今天买入一次到以后卖出的最大利润。
 
 class Solution {
 public:
