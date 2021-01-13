@@ -28,23 +28,6 @@ https://www.cnblogs.com/grandyang/p/4843654.html
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        int low = 0, high = nums.size() - 1;
-        while (low <= high) {
-            int cnt = 0;
-            int mid = low + (high - low) * 0.5;
-            for (int i = 0; i < nums.size(); ++i) {
-                if (nums[i] <= mid) cnt++;
-            }
-            if (cnt > mid) high = mid - 1;
-            else low = mid + 1;
-        }
-        return low;
-    }
-};
-
-class Solution {
-public:
-    int findDuplicate(vector<int>& nums) {
         int left = 0, right = nums.size() - 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
