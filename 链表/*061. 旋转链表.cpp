@@ -9,20 +9,24 @@
 解释:
 向右旋转 1 步: 5->1->2->3->4->NULL
 向右旋转 2 步: 4->5->1->2->3->NULL
-
-===========================================
-
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+    
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
-        
+        if (head == nullptr) return nullptr;
+        int n = 1;
+        ListNode *cur = head;
+        while (cur->next) {
+            ++n;
+            cur = cur->next;
+        }
+        cur->next = head;
+        int m = n - k % n;
+        for (int i = 0; i < m; ++i) {
+            cur = cur->next;
+        }
+        head = cur->next;
+        cur->next = nullptr;
+        return head;
     }
 };
