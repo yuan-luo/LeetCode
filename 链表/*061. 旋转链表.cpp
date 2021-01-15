@@ -10,6 +10,11 @@
 向右旋转 1 步: 5->1->2->3->4->NULL
 向右旋转 2 步: 4->5->1->2->3->NULL
     
+题解：
+
+把头尾连起来，然后倒走K步。（顺走 n - k % n 步）
+然后断开连接。
+
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
