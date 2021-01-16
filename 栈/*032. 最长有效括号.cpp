@@ -74,3 +74,39 @@ public:
     }
 };
 
+解法三：
+先把左括号入栈，然后遇到有右括号的时候看有没有左括号，如果有就出栈，
+如果没有说明栈为空或者栈里还有右括号，这时候把这个不匹配的右括号进栈。
+进栈是记录坐标，而不是括号本身。
+循环一轮如果栈为空说明全部匹配，长度为n。如果不为空说明有不匹配的
+左括号或者右括号。这时候把任何两个栈中的括号之间的最大距离计算出来
+就能得到最大的匹配长度。注意要考虑两个边界情况也要记录在内。
+a为右边，b为左边。走到最后a就是最后一个元素，也要参与计算。
+
+class Solution {
+public:
+    int longestValidParentheses(string s) {
+        stack<int> st;
+        int n = s.size(), ans = 0;
+        for (int i = 0; i < s.size(); ++i) {
+            if (s[i] == '(') st.push(i);
+            else { // s[i] == ')'
+                if (!st.empty()) {
+                    if (s[st.top()] == '(') st.pop();
+                    else st.push(i);
+                } else st.push(i);
+            }
+        }
+        if (st.empty()) return n;
+        int a = n, b = 0;
+        while (!st.empty()) {
+            b = st.top(); 
+            st.pop();
+            ans = max(ans, a - b - 1);
+            a = b;
+        }
+        ans = max(ans, a);
+        return ans;
+    }
+};
+
