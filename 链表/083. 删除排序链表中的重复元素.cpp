@@ -14,7 +14,6 @@ https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
 输出: 1->2->3
 
 解法一：
-
 快慢指针
 
 class Solution {
