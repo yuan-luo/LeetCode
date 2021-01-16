@@ -13,7 +13,31 @@ https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
 输入: 1->1->2->3->3
 输出: 1->2->3
 
-======================
+解法一：
+
+快慢指针
+
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        if (head == nullptr) return nullptr;
+        ListNode *slow = head, *fast = slow->next;
+        while (fast != nullptr) {
+            if (fast->val != slow->val) {
+                slow = slow->next;
+                fast = fast->next;
+            } else {
+                fast = fast->next;
+                slow->next = fast;
+            }
+        }
+        slow->next = nullptr;
+        return head;
+    }
+};
+
+解法二:
+使用一个指针
 
 class Solution {
 public:
