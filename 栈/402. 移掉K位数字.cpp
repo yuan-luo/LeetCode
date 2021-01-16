@@ -16,6 +16,9 @@ https://leetcode-cn.com/problems/remove-k-digits/
 这里要注意它用的不是一个真正的stack，而是vector，因为打印
 结果的时候要从头到尾打印。用vector方便遍历。
 
+最后一个坑是打印结果的时候，有可能是0，被截取掉了变成""，
+这种情况下我们要输出0。
+
 class Solution {
 public:
     string removeKdigits(string num, int k) {
