@@ -1,6 +1,7 @@
 148. 排序链表
 
-https://leetcode-cn.com/problems/sort-list/
+分拆成两个链表分别递归调用sortList先排好序，
+然后调用mergelist归并排序。
 
 class Solution {
 public:
