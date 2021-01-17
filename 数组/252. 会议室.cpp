@@ -11,6 +11,23 @@ Output: true
 
 NOTE: input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.
 
+我的解法：
+
+class Solution {
+public:
+    bool canAttendMeetings(vector<vector<int>>& intervals) {
+        if (intervals.size() <= 1) return true; 
+        vector<vector<int>> ans;
+        sort(intervals.begin(), intervals.end());
+        ans.push_back(intervals[0]);
+        for (int i = 1; i < intervals.size(); ++i) {
+            if (ans.back()[1] <= intervals[i][0]) ans.push_back(intervals[i]);
+            else return false;
+        }
+        return true;
+    }
+};
+    
 
 ### 解题思路1
 这道题给了我们一堆会议的时间，问能不能同时参见所有的会议，这实际上就是求区间是否有交集的问题，那么最简单暴力的方法就是每两个区间比较一下，
