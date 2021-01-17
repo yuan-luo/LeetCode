@@ -5,7 +5,8 @@
 题解分析：
 
 这是一道非常经典的题目，思想用到了前缀和。用map记录累计和的次数。
-如果存在sum[i] - sum[j] = k的话，说明j-i之间的累计和为k。sum为sum[i]，这样我们只需要考虑sum-k是否存在就可以了。
+如果存在sum[j] - sum[i] = k的话，说明j - i之间的累计和为k。
+sum为sum[i]，这样我们只需要考虑sum - k是否存在就可以了。
 
 class Solution {
 public:
