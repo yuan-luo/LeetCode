@@ -9,6 +9,41 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        if (head == nullptr || head->next == nullptr) return;
+        ListNode *slow = head, *fast = head, *pre;
+        while (fast != nullptr && fast->next != nullptr) {
+            pre = slow;
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        pre->next = nullptr;
+        ListNode* l2 = reverseList(slow);
+        head = mergeList(head, l2);
+    }
+    ListNode* reverseList(ListNode* head) {
+        ListNode *pre = nullptr, *cur = head;
+        while (cur != nullptr) {
+            ListNode *tmp = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+        return pre;
+    }
+    ListNode* mergeList(ListNode* l1, ListNode* l2) {
+        ListNode *tmp_l1 = l1, *tmp_l2 = l2;
+        if (l1 == nullptr) return l2;
+        if (l2 == nullptr) return l1;
+        l1->next = mergeList(l2, l1->next);
+        return l1;
+    }
+};
+
+================================================
 class Solution {
 public:
     void reorderList(ListNode* head) {
@@ -52,10 +87,8 @@ public:
         while (l1 != nullptr && l2 != nullptr) {
             l1_tmp = l1->next;
             l2_tmp = l2->next;
-
             l1->next = l2;
             l1 = l1_tmp;
-
             l2->next = l1;
             l2 = l2_tmp;
         }
