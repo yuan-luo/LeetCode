@@ -5,6 +5,28 @@
 class Solution {
 public:
     ListNode* insertionSortList(ListNode* head) {
+        ListNode dummy;
+        dummy.next = head;
+        ListNode *cur = head, *pre = &dummy;
+        while (cur != nullptr) {
+            if (cur->next != nullptr && cur->next->val < cur->val) {
+                // cur->next为需要插入链表的节点
+                while (pre->next != nullptr && pre->next->val < cur->next->val) pre = pre->next;
+                // 现在需要把cur->next移动到pre和它的下一个节点之间
+                ListNode *tmp = pre->next;
+                pre->next = cur->next;
+                cur->next = cur->next->next;
+                pre->next->next = tmp;
+                pre = &dummy;
+            } else cur = cur->next;
+        }
+        return dummy.next;
+    }
+};
+
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* head) {
         ListNode dummy(-1);
         ListNode *cur = head;
         while (cur != nullptr) {
@@ -15,26 +37,6 @@ public:
             pos->next = cur;
             cur = cur->next;
             pos->next->next = tmp;
-        }
-        return dummy.next;
-    }
-};
-
-class Solution {
-public:
-    ListNode* insertionSortList(ListNode* head) {
-        ListNode dummy(0);
-        ListNode* cur = head;
-        ListNode* pre = &dummy;
-        ListNode* next = nullptr;
-        while (cur != nullptr) {
-            next = cur->next;
-            while (pre->next != nullptr && pre->next->val <= cur->val) pre = pre->next;
-
-            cur->next = pre->next;
-            pre->next = cur;
-            pre = &dummy;
-            cur = next;
         }
         return dummy.next;
     }
