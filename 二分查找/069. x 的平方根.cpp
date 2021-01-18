@@ -5,7 +5,7 @@
 由于返回类型是整数，结果只保留整数的部分，小数部分将被舍去。
 
 更好理解：
-
+它说明 mid^2 <= x < (mid+1)^2，x的平方根为mid
 class Solution {
 public:
     int mySqrt(int x) {
