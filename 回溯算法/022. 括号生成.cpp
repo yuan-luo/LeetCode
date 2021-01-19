@@ -12,6 +12,31 @@
        "()(())",
        "()()()"
      ]
+       
+class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+        vector<string> ans;
+        string out;
+        dfs(ans, out, n, n);
+        return ans;
+    }
+    void dfs(vector<string>& ans, string& out, int left, int right) {
+        if (left > right || left < 0 || right < 0) return;
+        if (left == 0 && right == 0) {
+            ans.push_back(out);    
+            return;
+        }
+        else {
+            out.push_back('(');
+            dfs(ans, out, left - 1, right);
+            out.pop_back();
+            out.push_back(')');
+            dfs(ans, out, left, right - 1);
+            out.pop_back();
+        }      
+    }
+};
 
 class Solution {
 public:
