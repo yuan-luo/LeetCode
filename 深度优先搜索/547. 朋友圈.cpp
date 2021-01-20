@@ -20,6 +20,28 @@
 
 class Solution {
 public:
+    int findCircleNum(vector<vector<int>>& isConnected) {
+        int n = isConnected.size(), ans = 0;
+        vector<bool> visited(n, false);
+        for (int i = 0; i < n; ++i) {
+            if (visited[i]) continue;
+            helper(isConnected, i, visited);
+            ++ans;
+        }
+        return ans;
+    }
+    void helper(vector<vector<int>>& isConnected, int k, vector<bool>& visited) {
+        visited[k] = true;
+        for (int i = 0; i < isConnected.size(); ++i) {
+            if (visited[i] == false && isConnected[k][i]) {
+                helper(isConnected, i, visited);
+            }
+        }
+    }
+};
+
+class Solution {
+public:
     int findCircleNum(vector<vector<int>>& M) {
         int n = M.size(), ans = 0;
         vector<bool> visited(n, false);
