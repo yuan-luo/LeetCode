@@ -1,9 +1,9 @@
 34. 在排序数组中查找元素的第一个和最后一个位置
 
-给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
+给定一个按照升序排列的整数数组 nums，和一个目标值 target。
+找出给定目标值在数组中的开始位置和结束位置。
 
 你的算法时间复杂度必须是 O(log n) 级别。
-
 如果数组中不存在目标值，返回 [-1, -1]。
 
 示例 1:
@@ -16,6 +16,35 @@
 输出: [-1,-1]
 
 https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/discuss/14699/Clean-iterative-solution-with-two-binary-searches-(with-explanation)
+
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        vector<int> ans(2, -1);
+        if (nums.size() == 0) return ans;
+        int left = 0, right = nums.size();
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target) right = mid;
+            else if (nums[mid] < target) left = mid + 1;
+            else if (nums[mid] > target) right = mid;
+        }
+        if (left == nums.size()) ans[0] = -1;
+        else ans[0] = nums[left] == target ? left : -1;
+
+        left = 0, right = nums.size();
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target) left = mid + 1;
+            else if (nums[mid] < target) left = mid + 1;
+            else if (nums[mid] > target) right = mid;            
+        }
+        cout << left << " " <<right << endl;
+        if (left == 0) ans[1] = -1;
+        else ans[1] = nums[left - 1] == target ? left - 1 : -1;
+        return ans;
+    }
+};
 
 class Solution {
 public:
