@@ -17,7 +17,22 @@
 应当保持奇数节点和偶数节点的相对顺序。
 链表的第一个节点视为奇数节点，第二个节点视为偶数节点，以此类推。
 
-==========================================
+class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        if (head == nullptr || head->next == nullptr) return head;
+        ListNode *pre = head, *cur = head->next;
+        while (cur != nullptr && cur->next != nullptr) {
+            ListNode *tmp = pre->next;
+            pre->next = cur->next;
+            cur->next = cur->next->next;
+            pre->next->next = tmp;
+            pre = pre->next;
+            cur = cur->next;
+        }
+        return head;
+    }
+};
 
 class Solution {
 public:
