@@ -13,6 +13,25 @@
 （大于这个值的所有因子，都将使得nums中的每一个值经过除法之后都为1），
 这样我们可以通过二分法，更快找到目标因子。
 
+
+class Solution {
+public:
+    int smallestDivisor(vector<int>& nums, int threshold) {
+    	int i, left = 1, right = 1000000, mid, sum;
+    	while(left < right)
+    	{
+    		mid = left + ((right - left) >> 1);
+    		sum = 0;
+    		for (i = 0; i < nums.size(); ++i) sum += ceil(nums[i] / double(mid));
+    		if (sum > threshold) //分母太小了
+    			left = mid + 1; //放大
+    		else
+    			right = mid;
+    	}
+    	return left;
+    }
+};
+
 class Solution {
 private:
     int sum(vector<int>& nums, int divisor) {
