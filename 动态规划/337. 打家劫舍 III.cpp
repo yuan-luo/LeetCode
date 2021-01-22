@@ -18,7 +18,9 @@ public:
         if (root == nullptr) return ans;
         vector<int> left = dfs(root->left);
         vector<int> right = dfs(root->right);
+        // 左边包括left或不包括left的最大值 加上 右边包括right或不包括right的最大值
         ans[0] = max(left[0], left[1]) + max(right[0], right[1]);
+        // root本身加上左边不包括left加上右边不包括right
         ans[1] = root->val + left[0] + right[0];
         return ans;
     }
