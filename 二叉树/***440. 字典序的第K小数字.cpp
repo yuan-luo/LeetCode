@@ -8,12 +8,7 @@
 
 解题思路：
 
-这道题太精妙了。构造一个十叉树。
-//https://leetcode.com/problems/k-th-smallest-in-lexicographical-order/
-//discuss/92242/ConciseEasy-to-understand-Java-5ms-solution-with-Explaination
-Actually this is a denary tree (each node has 10 children). 
-Find the kth element is to do a k steps preorder traverse of the tree.
-
+构造一个十叉树。
 找K小的数字其实就是遍历查找这个十叉树的过程。具体看题解。
 
 class Solution {
