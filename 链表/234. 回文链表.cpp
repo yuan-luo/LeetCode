@@ -2,8 +2,6 @@
 
 请判断一个链表是否为回文链表。
 
-==========================================
-
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
