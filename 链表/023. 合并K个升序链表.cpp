@@ -6,7 +6,8 @@
 
 题解：
 
-这道题的关键是引入一个大小为K的小根堆。（凡是遇到K字眼的题目第一时间想到构造大小根堆）
+这道题的关键是引入一个大小为K的小根堆。
+（凡是遇到K字眼的题目第一时间想到构造大小根堆）
 
 复杂（不太熟悉）的第一个地方是构造一个priority_queue的operator()。
 注意小根堆的回调函数是>。
@@ -19,31 +20,26 @@
 
 class Solution {
 public:
-
-    // 小根堆的回调函数
     struct cmp {
-        bool operator()(ListNode *a, ListNode *b) {
-            return a->val > b->val;
+        bool operator()(ListNode* a, ListNode* b) {
+            if (a->val > b->val) return true;
+            return false;
         }
     };
 
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         priority_queue<ListNode*, vector<ListNode*>, cmp> q;
-
-        // 建立大小为k的小根堆
-        for (auto elem : lists) {
-            if (elem) q.push(elem);
+        for (auto item : lists) {
+            if (item) q.push(item);
         }
-
-        // 建立dummy node
-        ListNode* dummy = new ListNode(0);
-        ListNode* p = dummy;
+        ListNode dummy;
+        ListNode *cur = &dummy;
         while (!q.empty()) {
-            ListNode *top = q.top(); q.pop();
-            if (top->next) q.push(top->next);
-            p->next = top;
-            p = p->next;
+            ListNode *node = q.top(); q.pop();
+            if (node->next) q.push(node->next);
+            cur->next = node;
+            cur = cur->next;
         }
-        return dummy->next;
+        return dummy.next;
     }
 };
