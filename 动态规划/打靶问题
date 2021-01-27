@@ -1,0 +1,39 @@
+打靶问题的一种递归解法
+
+问题：一个射击运动员打靶，靶共有10环，连开10枪打中90环的可能性有多少种?
+请用递归算法编程实现。
+
+思路：一个运动员打出x发子弹，总共命中n环（环数从 10环 到 0环），问命中n环有多少种方式？
+当打第一法子弹时，运动员可以选择的环数的下限是lowlimit =  n - 10*(x-1)，
+若 < 0 则置零；上限highlimit是 10，若n = 0则不设置上限，直接返回。
+
+#include <iostream>
+using namespace std;
+int countX = 0;
+int lowlimit, highlimit;
+//有x发子弹，总共打出n环，问有多少种组合？
+void f(int x, int n)
+{
+    if (x == 1 || n == 0)	//如果只有1发子弹或者剩余要打的环数为0，则当前组合已经确定
+    {
+        countX++;
+        return;
+    } else {
+        lowlimit = n - 10*(x-1);
+        lowlimit = lowlimit < 0 ? 0 : lowlimit;	//求出可以打的最小环数
+        highlimit = n <= 10 ? n : 10;	//求出可以打的最大环数
+        for (int i = lowlimit; i <= highlimit; i++)	//对于当前子弹每种可能的打法，递归探寻后继的打法
+        {
+            f(x-1, n-i);
+        }
+    }
+}
+ 
+int main()
+{
+    int x, n;
+    cin >> x >> n;
+    f(x, n);
+    cout << countX << endl;
+    return 0;
+}
