@@ -1,16 +1,4 @@
 240. 搜索二维矩阵 II
-
-https://leetcode-cn.com/problems/search-a-2d-matrix-ii/
-
-编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target。该矩阵具有以下特性：
-
-每行的元素从左到右升序排列。
-每列的元素从上到下升序排列。
-
-示例:
-
-现有矩阵 matrix 如下：
-
 [
   [1,   4,  7, 11, 15],
   [2,   5,  8, 12, 19],
@@ -26,8 +14,6 @@ https://leetcode-cn.com/problems/search-a-2d-matrix-ii/
 
 从矩阵的右上方开始考虑，如果当前值小于target，向下走，
 如果当前值大于target，向左走。
-这道题的follow up是378. 有序矩阵中第K小的元素。利用二分查找，有相当难度。
-https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/
 
 class Solution {
 public:
