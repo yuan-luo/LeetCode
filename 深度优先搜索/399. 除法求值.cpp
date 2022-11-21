@@ -18,7 +18,7 @@
 以及某些边的权值（两个变量的比值），
 试对任意两点（两个变量）求出其路径长（两个变量的比值）。
 
-因此，我们首先需要遍历 equations\textit{equations}equations 数组，
+因此，我们首先需要遍历 equations 数组，
 找出其中所有不同的字符串，并通过哈希表将每个不同的字符串映射成整数。
 
 在构建完图之后，对于任何一个查询，就可以从起点出发，
@@ -31,6 +31,7 @@ public:
     vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
         int nvars = 0;
         unordered_map<string, int> variables;
+        
         int n = equations.size();
         for (int i = 0; i < n; ++i) {
             if (variables.find(equations[i][0]) == variables.end()) {
@@ -40,6 +41,8 @@ public:
                 variables[equations[i][1]] = nvars++;
             }
         }
+        
+        // 对于每个点，存储其直接连接到的所有点及对应的权值
         vector<vector<pair<int, double>>> edges(nvars);
         for (int i = 0; i < n; ++i) {
             int va = variables[equations[i][0]], vb = variables[equations[i][1]];
@@ -75,8 +78,6 @@ public:
             }
             ret.push_back(result);
         }
-
         return ret;
-
     }
 };
