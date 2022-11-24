@@ -35,6 +35,7 @@ public:
 };
 
 这道题和第3题有相似的地方。
+https://github.com/yuan-luo/LeetCode/blob/master/%E5%AD%97%E7%AC%A6%E4%B8%B2/003.%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2.cpp
 第3题的map的value是保存字符的下标。而这道题value是保存字符出现的次数。
 如果字符出现一次就减1，如过value大于等于0则说明hit了字符串 t 中的字符。
 当left右移时，每次把字符加1，如果大于0说明hit了字符串t中的字符。
