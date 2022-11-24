@@ -29,28 +29,29 @@ pre            cur  nex  tmp
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        if (head == nullptr || k == 1) return head;
-        int num = 0;
-        ListNode dummy = ListNode(-1);
+        ListNode dummy;
         dummy.next = head;
-        ListNode *cur = &dummy, *nex, *tmp, *pre = &dummy;
-        while (cur = cur->next) ++num;
+        ListNode *pre = &dummy, *cur = head;
+        int num = 0;
+        while (cur) {
+            cur = cur->next;
+            ++num;
+        }
         while (num >= k) {
             cur = pre->next;
-            nex = cur->next;
             for (int i = 1; i < k; ++i) {
-                tmp = nex->next;
-                nex->next = pre->next;
-                pre->next = nex;
-                cur->next = tmp;
-                nex = tmp;
+                ListNode *tmp = cur->next;
+                cur->next = tmp->next;
+                tmp->next = pre->next;
+                pre->next = tmp;
             }
-            pre = cur;
             num -= k;
+            pre = cur;
         }
         return dummy.next;
-     }
+    }
 };
+
     
 解法二：
 
