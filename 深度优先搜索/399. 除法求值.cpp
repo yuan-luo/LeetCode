@@ -13,7 +13,40 @@
 且不存在任何矛盾的结果。
 
 
-方法一：广度优先搜索
+class Solution {
+public:
+    vector<double> calcEquation(vector<vector<string>>& equations, 
+                                vector<double>& values, 
+                                vector<vector<string>>& queries) {
+        vector<double> res;
+        for (int i = 0; i < equations.size(); ++i) {
+            m[equations[i][0]][equations[i][1]] = values[i];
+            m[equations[i][1]][equations[i][0]] = 1.0 / values[i];
+        }
+        for (auto query: queries) {
+            unordered_set<string> visited;
+            double t = helper(query[0], query[1], visited);
+            res.push_back(t > 0.0 ? t : -1);
+        }
+        return res;
+    }
+
+    double helper(string up, string down, unordered_set<string>& visited) {
+        if (m.count(up) && m[up].count(down)) return m[up][down];
+        for (auto d: m[up]) {
+            if (visited.count(d.first)) continue;
+            visited.insert(d.first);
+            double t = helper(d.first, down, visited);
+            if (t > 0.0) return t * d.second;
+        }
+        return -1;
+    }
+
+private:
+    map<string, map<string, double>> m;  // up-> < down-> val>
+};
+
+方法二：广度优先搜索（非递归）
 我们可以将整个问题建模成一张图：给定图中的一些点（变量），
 以及某些边的权值（两个变量的比值），
 试对任意两点（两个变量）求出其路径长（两个变量的比值）。
@@ -25,10 +58,11 @@
 通过广度优先搜索的方式，不断更新起点与当前点之间的路径长度，
 直到搜索到终点为止。
 
-
 class Solution {
 public:
-    vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
+    vector<double> calcEquation(vector<vector<string>>& equations,
+                                vector<double>& values,
+                                vector<vector<string>>& queries) {
         int nvars = 0;
         unordered_map<string, int> variables;
         
@@ -53,7 +87,8 @@ public:
         vector<double> ret;
         for (const auto& q: queries) {
             double result = -1.0;
-            if (variables.find(q[0]) != variables.end() && variables.find(q[1]) != variables.end()) {
+            if (variables.find(q[0]) != variables.end() &&
+                variables.find(q[1]) != variables.end()) {
                 int ia = variables[q[0]], ib = variables[q[1]];
                 if (ia == ib) {
                     result = 1.0;
