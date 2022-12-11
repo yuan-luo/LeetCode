@@ -25,31 +25,11 @@ public:
         for (int i = 1; i < m; ++i) prev = prev->next;
         ListNode *curr = prev->next;
         for (int i = m; i < n; ++i) {
-            ListNode *move = curr->next;
-            curr->next = move->next;
-            move->next = prev->next;
-            prev->next = move;
+            ListNode *tmp = curr->next;
+            curr->next = tmp->next;
+            tmp->next = prev->next;
+            prev->next = tmp;
         }
         return dummy.next;
-    }
-};
-
-
-class Solution {
-public:
-    ListNode *reverseBetween(ListNode *head, int m, int n) {
-        ListNode *dummy = new ListNode(-1);
-        dummy->next = head;
-        ListNode *prev = dummy;
-
-        for (int i = 1; i < m; ++i) prev = prev->next;
-        ListNode* cur = prev->next;        
-        for (int i = m; i < n; ++i) {
-            ListNode* move = cur->next;
-            cur->next = move->next;
-            move->next = prev->next;
-            prev->next = move;
-        }
-        return dummy->next;
     }
 };
