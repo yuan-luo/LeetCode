@@ -5,14 +5,15 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        if (head == nullptr) return nullptr;
-        if (head->next != nullptr && head->val == head->next->val) {
-            while (head->next != nullptr && head->val == head->next->val) {
-                head = head->next;
-            }
-            return deleteDuplicates(head->next);
+        ListNode dummy;
+        dummy.next = head;
+        ListNode* pre = &dummy;
+        while (pre->next) {
+            ListNode* cur = pre->next;
+            while (cur->next && cur->val == cur->next->val) cur = cur->next;
+            if (cur != pre->next) pre->next = cur->next;
+            else pre = pre->next;
         }
-        head->next = deleteDuplicates(head->next);
-        return head;
+        return dummy.next;
     }
 };
